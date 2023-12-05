@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-jamieroche1987-camberley-6w4y7u3lqh.us2.codeanyapp.com',
-                 'camberleykarting.herokuapp.com', 'localhost']
+                 'camberleykarting.herokuapp.com', 'camberleykarting-609b5eae883e.herokuapp.com', 'localhost']
 
 
 # Application definition
