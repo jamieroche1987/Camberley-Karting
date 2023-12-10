@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Kalnia:wght@300&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital@1&display=swap");
+
+body {
+  font-family: "Kalnia", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: "space-mono", sans-serif;
+}
+
+.blue {
+  color: var(--clr-blue);
+}
+
+.hover-white:hover {
+  transition: 0.5s ease-in-out;
+  color: var(---clr-white);
+}
+
+.fill-viewport-height {
+  min-height: 80vh;
+}
