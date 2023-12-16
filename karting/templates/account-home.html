@@ -1,5 +1,6 @@
-{% extends "base.html" %} {% block content %}
-<h1 class="text-center"></h1>
+{% extends "base.html" %} {% block content %} {% load account %}
+
+<p>Welcome, {% user_display user %}!</p>
 
 {% for booking in object_list %}
 <div class="d-flex justify-content-center">
