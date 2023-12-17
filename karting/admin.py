@@ -18,4 +18,4 @@ class BookingAdmin(admin.ModelAdmin):
 @admin.register(Services)
 class BookingServices(admin.ModelAdmin):
     """Class to view the Services in the admin panel"""
-    list_display = ('service_name', 'session_length', 'cost')
+    list_display = ('service_name', 'cost')
