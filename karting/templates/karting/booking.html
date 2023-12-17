@@ -1,17 +1,5 @@
 {% extends "base.html" %}{% load crispy_forms_tags %}{% load account %} {% block
-content %} {% if form.errors %}
-<div class="alert bg-danger text-center container-sm">
-  <h2>We had an issue booking your Race Day</h2>
-  <br />
-
-  {% for field, errors in form.errors.items %}
-
-  <p>{{ field }}: {{ errors.0 }}</p>
-
-  {% endfor %}
-</div>
-{% endif %}
-
+content %}
 <div class="m-3">
   <form
     method="POST"
@@ -21,10 +9,7 @@ content %} {% if form.errors %}
   >
     <h1 class="text-center">Book a Race Day</h1>
     {% csrf_token %} {{ form | crispy }} {{ form.media }}
-    <button type="submit" class="btn form-style btn-primary mt-3">
-      Book Race Day
-    </button>
+    <button type="submit" class="btn form-style">Book Race Day</button>
   </form>
 </div>
-
 {% endblock content %}
