@@ -10,3 +10,10 @@ class BookingsList(generic.ListView):
     paginate_by = 25
     queryset = Booking.objects.filter(date_of_booking__gte=date.today()).order_by(
         'date_of_booking', 'start_time')
+
+class CreateBookingView(LoginRequiredMixin, CreateView):
+    form_class = BookingForm
+    template_name = 'booking/booking.html'
+    success_url = "/booking/account-home/"
+    model = Booking
+       
