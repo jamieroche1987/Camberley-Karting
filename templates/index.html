@@ -7,10 +7,16 @@
 
 <!-- About -->
 <div class="container mt-5 text-center">
-  <h1 class="text-uppercase">Welcome to Camberley Karting</h1>
-  <p class="fs-4"></p>
-  <div class="row">
-    <div class="col-sm p-3 m-2">
+    <div class="container heading">
+        <hr />
+        <h1 class="text-uppercase">Welcome to Camberley Karting</h1>
+        <hr />
+    </div>
+
+    <p class="fs-4">The place to test yourself against your friends and foes</p>
+    <div class="row">
+        <div class="col-sm p-3 m-2">
+  
       <h5 class="fw-bold fs-5">The Team</h5>
       <p>
         It all started for TeamSport back in 2000 in Guildford, Surrey when we
@@ -80,15 +86,28 @@
 </div>
 
 <!-- Karting Packages -->
-<div class="blue-background p-5">
-  <div class="container text-center">
-    <h2 class="fs-1">Karting Package</h2>
-  </div>
-  {% if services %} {% for service in services %}
-  <p>{{ service.name }}</p>
-  {% endfor %} {% else %}
-  <p>No Services Avalible</p>
-  {% endif %}
-</div>
+<div class="gold-background text-center p-5">
+    <div class="container heading light-text">
+        <hr />
+        <h2 class="fs-1 text-uppercase ">Karting Packages</h2>
+        <hr />
+    </div>
 
-{% endblock %}
+    <div class="container col-12">
+        <div class="row justify-content-md-center ">
+            {% for service in services %}
+            <div class="col-md-4 mt-4">
+                <a href="#" class="packages-hover">
+                    <div class="card p-2 dark-background light-text packages-hover pt-3">
+                        <i class="fa-solid fa-scissors"></i>
+                        <h4 class="pt-2">{{ service.service_name }}</h4>
+                        <p>£{{ service.cost }}</p>
+                    </div>
+                </a>
+            </div>
+            {% if forloop.counter|divisibleby:2%}
+        </div>
+        <div class="row justify-content-md-center">
+            {% endif %}
+            {% endfor %}
+        </div>
