@@ -5,7 +5,7 @@ from django.forms.widgets import DateInput
 
 
 class BookingForm(forms.ModelForm):
-    """Form to create a booking for Karting"""
+    """For to create and edit a Race Day booking"""
     class Meta:
         model = Booking
         fields = ["date_of_booking", "service_name", "start_time"]
@@ -13,6 +13,6 @@ class BookingForm(forms.ModelForm):
 
         labels = {
             'date_of_booking': 'Date',
-            'service_name': 'Packages',
+            'service_name': 'Race',
             'start_time': 'Time',
-            }
+        }

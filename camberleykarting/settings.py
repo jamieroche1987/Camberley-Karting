@@ -65,7 +65,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap4'
+
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
