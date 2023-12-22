@@ -1,13 +1,94 @@
 {% extends "base.html" %} {% block content %}
+
+<!-- Hero Image -->
 <div class="hero-container">
   <div class="hero-image"></div>
-  {% comment %}
-  <img
-    class="hero-image"
-    src="https://res.cloudinary.com/digdpxm2u/image/upload/v1703272366/gsd1u50szuutf3bt6f9f.jpg"
-    class="img-fluid"
-    alt="hero image"
-  />
-  {% endcomment %}
 </div>
+
+<!-- About -->
+<div class="container mt-5 text-center">
+  <h1 class="text-uppercase">Welcome to Camberley Karting</h1>
+  <p class="fs-4"></p>
+  <div class="row">
+    <div class="col-sm p-3 m-2">
+      <h5 class="fw-bold fs-5">The Team</h5>
+      <p>
+        It all started for TeamSport back in 2000 in Guildford, Surrey when we
+        opened our first track. The desire then to create the best karting
+        experience and provide new standards in the industry were the
+        foundations for the business today. Our plans are to continue growing,
+        opening more venues across the UK and Europe, bringing the fun of indoor
+        karting closer to more people.
+      </p>
+    </div>
+
+    <div class="col-sm p-3 m-2">
+      <h5 class="fw-bold fs-5">The Track</h5>
+      <p>
+        Experience the full power of indoor go karting with multi-level tracks,
+        banked corners, ramps and insanely fast straights, and track lengths up
+        to an epic 1000m.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm p-3 m-2">
+      <h5 class="fw-bold fs-5">The Karts</h5>
+      <p>
+        ENGINE AND DRIVE Most adult go-karts you’ll see at our tracks use a
+        four-stroke petrol engine, pretty similar to the one in a car which is
+        about 200cc, while junior karts get a smaller 120cc engine. STEERING
+        WHEEL The all-important control centre of the kart, the steering wheel
+        tells your rear wheels which way to go. Along with every other vital
+        component of the kart, the steering column is regularly tested by our
+        trackside team to make sure it’s responsive and fighting fit for
+        high-speed thrills. SEATS The heavy-duty plastic or fibre glass seating
+        is fully adjustable, so whether you’re tall or small you’ll be able to
+        reach the pedals without a hitch. PEDALS Along with the steering, these
+        are the bits you need to master if you want to know how to drive a
+        go-kart! There’s no gears to worry about on a standard kart, just an
+        accelerator pedal that pumps juice into the engine and a brake pedal
+        that helps you control your speed. Many karts are fitted with
+        anti-double pedalling tech, which stops you accelerating and braking at
+        the same time and protects the clutch from damage. CHASSIS The go-kart’s
+        twin-tube chassis is lightweight and aerodynamic to keep it nice and
+        responsive, helping you make those all-important accelerations back up
+        to high speed after you’ve bossed your way round a corner. There’s also
+        a rubber shock-absorbing system mounted on the chassis front for extra
+        protection. BUMPERS The bumpers at the front and rear are important
+        safety features. Made of heavy-duty plastic, they surround the kart to
+        absorb the worst of the shock on any impact. So even if you do lose
+        control and go into the tyres, you won’t be out of the race for long!
+        TYRES You might have noticed go-karts have super wide tyres. Just like
+        with an F1 car, this increases their lateral traction, which means you
+        can take those tight corners without sacrificing too much speed - as
+        long as you’ve got the skills for it. WHAT TO WEAR WHEN GO-KARTING If
+        you’re go-karting for the first time, you might be wondering what to
+        wear on your first visit to the track. In most cases, your normal
+        everyday clothes will be fine – we’ll supply the crash helmet, race suit
+        and gloves that give you all the protection you need for an epic
+        high-speed race. It’s best not to wear too much loose and baggy clothing
+        (for obvious reasons) and take off any jewellery, and if you have long
+        hair we advise to tie it back and tuck it into your race suit. For
+        safety we do not allow heeled shoes or open toed shoes, so leave your
+        flip flops at home! But apart from that, ordinary clothes are fine – you
+        might want to bring a change of clothes though, as you can work up quite
+        a sweat when you’re speeding round the track!
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Karting Packages -->
+<div class="blue-background p-5">
+  <div class="container text-center">
+    <h2 class="fs-1">Karting Package</h2>
+  </div>
+  {% if services %} {% for service in services %}
+  <p>{{ service.name }}</p>
+  {% endfor %} {% else %}
+  <p>No Services Avalible</p>
+  {% endif %}
+</div>
+
 {% endblock %}

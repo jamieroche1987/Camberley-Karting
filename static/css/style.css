@@ -2,36 +2,68 @@
 
 body {
   font-family: "Kalnia", sans-serif;
+  background-color: var(--clr-light);
 }
 
 h1,
-h2 {
+h2 h3,
+h4,
+h5 {
   font-family: "space-mono", sans-serif;
 }
 
 :root {
   --clr-blue: #181e69;
-  ---clr-white: #ffffff;
+  --clr-light: #ffffff;
+  --clr-dark: #212529;
 }
 
 .white {
   color: var(--clr-white);
 }
 
+.dark-background {
+  background-color: var(--clr-dark);
+}
+
+.blue-background {
+  background-color: var(--clr-blue);
+}
+
+#app {
+  display: flex;
+}
+
 .hover-white:hover {
   transition: 0.5s ease-in-out;
-  color: var(---clr-white);
+  color: var(---clr-light);
 }
+
+/* Navigation */
 
 .fill-viewport-height {
   min-height: 80vh;
+}
+
+/* Alert Box */
+
+#alert-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* height:fit-content; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-container {
   height: 80vh;
   width: 100%;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   top: 0;
 }
 
