@@ -1,4 +1,13 @@
-{% block content %}
-<h1>Home</h1>
-<img src="" class="img-fluid" />
+{% extends "base.html" %} {% block content %}
+<div class="hero-container">
+  <div class="hero-image"></div>
+  {% comment %}
+  <img
+    class="hero-image"
+    src="https://res.cloudinary.com/digdpxm2u/image/upload/v1703272366/gsd1u50szuutf3bt6f9f.jpg"
+    class="img-fluid"
+    alt="hero image"
+  />
+  {% endcomment %}
+</div>
 {% endblock %}
