@@ -17,7 +17,7 @@
   </div>
 
   {% endfor %}
-  <a href="#">
+<a href="{% url 'createbooking' %}"></a>
     <div class="d-grid gap-2 col-5 mx-auto">
       <button class="btn btn-primary pt-3 mt-5 shadow-lg" type="button">
         <h2>Book Another Race Day</h2>
@@ -28,7 +28,7 @@
   <div class="d-flex justify-content-center">
     <div class="card shadow p-3 m-3 text-center w-75">
       <p>No upcoming Race Day</p>
-      <a href="{% url 'create_booking' %}">
+<a href="{% url 'createbooking' %}"></a>
         <div class="d-grid gap-2 col-6 mx-auto">
           <button class="btn btn-primary" type="button">Book A Race day</button>
         </div>
