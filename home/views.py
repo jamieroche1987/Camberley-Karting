@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from .models import Services
 
 
 class HomeView(TemplateView):
@@ -6,5 +7,5 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['kartingpackages'] = Services.objects.all()
+        context['services'] = Services.objects.all()
         return context
