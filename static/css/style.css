@@ -48,10 +48,6 @@ h5 {
     color: var(---clr-light);
 }
 
-/* #app {
-    display: flex;
-} */
-
 /* Navigation */
 
 .fill-viewport-height {
@@ -71,6 +67,17 @@ h5 {
     justify-content: center;
     align-items: center;
 }
+
+/* Custom Utilities */
+
+.custom-button-dark-blue {
+    transition: .5s ease-in-out;
+    background-color: var(--clr-dark);
+    color: var(--clr-blue);
+    box-shadow: 0 0.2rem 1rem var(--clr-blue);
+}
+
+/* Home Page */
 
 .hero-container {
     height: 80vh;
@@ -94,6 +101,7 @@ h5 {
     transition: 0.5s ease-in-out;
     text-decoration: none;
     box-shadow: 0 0.2rem 1rem #483394;
+    box-shadow: 0 0.2rem 1rem var(--clr-blue;
 }
 
 .package-hover:hover {
