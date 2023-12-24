@@ -1,7 +1,7 @@
 from typing import Any, Dict
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from home.models import Services
+from .models import Services
 
 
 class HomeView(TemplateView):
