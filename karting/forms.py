@@ -30,3 +30,16 @@ class BookingForm(forms.ModelForm):
             'service_name': 'Race',
             'start_time': 'Time',
         }
+
+
+class Selectpackage(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ["date_of_booking", "service_name",]
+        widgets = {'date_of_booking': DateInput(attrs={'type': 'date'}),
+                   'service_name': forms.HiddenInput(), }
+
+        labels = {
+            'date_of_booking': 'Date',
+            'service_name': 'package',
+        }

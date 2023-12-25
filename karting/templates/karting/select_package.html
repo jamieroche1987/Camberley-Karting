@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+<div id="haircuts" class="dark-background text-center p-5 fill-width">
+  <div class="container heading dark-text">
+    <hr />
+    <h2 class="fs-1 text-uppercase grey-text">Karting Packages</h2>
+    <hr />
+  </div>
+  <div class="container dark-text">
+    <p>
+      Why not test yourself against your friends? Think you have what it takes
+      to beat your friends and family? Even think you can beat the Lap Record
+      set by The 7x World Champion Lewis Hamilton? Take a look into the packages
+      we provide... There is something for everyone
+    </p>
+
+    <div class="m-3">
+      <form
+        method="POST"
+        action="{% url 'createbooking' %}"
+        class="form mb-2 p-2 form-style"
+        enctype="multipart/form-data"
+      >
+        <h1 class="text-center pt-5">Book a Race Day</h1>
+        {% csrf_token %} {{ form | crispy }} {{ form.media }}
+        <button
+          type="submit"
+          class="btn form-style custom-button-dark-grey mt-3"
+        >
+          Book A Race Day
+        </button>
+      </form>
+    </div>
+
+    <h2 class="gold-text p-3">
+      Select Your Race package <br /><br />
+      <i class="fa-solid fa-hand-point-down fs-1"></i>
+    </h2>
+  </div>
+
+  <div class="container col-12">
+    <div class="row justify-content-md-center">
+      {% for service in services %}
+      <div class="col-md-4 mt-4">
+        <a href="{% url 'createbooking' %}" class="package-hover">
+          <div class="card p-2 pt-3 dark-background light-text haircut-hover">
+            <i class="fa-solid fa-flag-checkered"></i>
+            <h4 class="pt-2">{{ service.service_name }}</h4>
+            <p>{{ service.session_length }}</p>
+            <p>£{{ service.cost }}</p>
+          </div>
+        </a>
+      </div>
+      {% if forloop.counter|divisibleby:2%}
+    </div>
+    <div class="row justify-content-md-center">{% endif %} {% endfor %}</div>
+  </div>
+</div>
+{% endblock content %}

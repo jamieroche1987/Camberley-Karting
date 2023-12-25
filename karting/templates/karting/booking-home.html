@@ -4,17 +4,17 @@
   <p class="pt-5">Welcome, {% user_display user %}!</p>
   <h1 class="text-center">Upcoming Race Days</h1>
   {% if object_list %} {% for booking in object_list %}
-  <div class="d-flex justify-content-center">
-    <div class="card shadow p-3 m-3 text-center w-75">
+<a href="{% url 'booking-detail' booking.id %}"></a>iv class="d-flex justify-content-center">
+    <div class="card shadow p-3 m-3 text-center w-75 package-hover">
       <p>{{ booking.date_of_booking|date:"l j F Y" }}</p>
+    {% if user.is_superuser %}
       <p>{{ booking.username }}</p>
+    {% endif %}
       <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }}</p>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">Edit Race Days</button>
-        <button class="btn btn-danger" type="button">Cancel Race Days</button>
-      </div>
-    </div>
-  </div>
+    <p>End time: {{ booking.end_time }}</p>
+    
+</a>
+    
 
   {% endfor %}
 <a href="{% url 'createbooking' %}"class="link-underline link-underline-opacity-0"></a>
