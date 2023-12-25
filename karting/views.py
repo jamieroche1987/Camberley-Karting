@@ -1,17 +1,17 @@
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date
 from .forms import BookingForm, Selectpackage
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, 
+from django.views.generic import CreateView, ListView, DetailView, UpdateView,
 DeleteView
-from django.urls import reverse_lazy
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    template_name = 'karting/booking-home.html' 
+    template_name = 'karting/booking-home.html'
     paginate_by = 25
 
     def get_queryset(self):
@@ -35,6 +35,7 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
 class BookingDetailView(LoginRequiredMixin, DetailView):
     model = Booking
 
@@ -48,6 +49,7 @@ class SelectHaircutView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context['services'] = Services.objects.all()
         return context
+
 
 class CreateBooking(LoginRequiredMixin, CreateView):
     model = Booking
