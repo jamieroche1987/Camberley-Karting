@@ -31,8 +31,7 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
         }
 
-
-class Selectpackage(forms.ModelForm):
+    # class Selectpackage(forms.ModelForm):
     #     class Meta:
     #         model = Booking
     #         fields = ["date_of_booking", "service_name",]
@@ -47,11 +46,16 @@ class Selectpackage(forms.ModelForm):
     # Form Wizard Forms
 
 
-class SelectPaackageForm(forms.ModelForm):
-    class Meta:
+class SelectPackageForm(forms.ModelForm):
+        class Meta:
         model = Services
         fields = ('service_name',)
-        # widgets = {'service_name': forms.Select(attrs={'class': 'service-dropdown'})}  # to use buttons for the options
+        # widgets = {'service_name': forms.Select(attrs={'class': 'service-buttons'})}  # to use buttons for the options
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['services'] = Services.objects.all()
+        return context
 
 
 class SelectDateForm(forms.ModelForm):

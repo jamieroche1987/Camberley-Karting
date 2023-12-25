@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap4',
+    'formtools'
     'karting',
     'home',
 ]
