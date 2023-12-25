@@ -28,9 +28,9 @@
                     aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#kartingpackages">Karting Packages</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#kartingpackages">Karting Packages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#contact">Contact</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'booking_home' %}">Bookings</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
