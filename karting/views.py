@@ -1,20 +1,18 @@
 from django.urls import reverse_lazy
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date
 from .forms import BookingForm, Selectpackage
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, ListView, DetailView, UpdateView,
-DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixinfrom django.views.generic import CreateView, ListView, DetailView, UpdateView,
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    template_name = 'karting/booking-home.html'
-    paginate_by = 25
+    template_name = 'karting/booking-home.html'    paginate_by = 25
 
-    def get_queryset(self):
+_    def get_queryset(self):
         if self.request.user.is_superuser:
             queryset = Booking.objects.filter(
                 date_of_booking__gte=date.today()).order_by(
@@ -31,15 +29,17 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         booking = self.get_object()
-        if self.request.username == booking.username:
+       if self.request.user == booking.username or 
+       self.request.username.is_superuser:
             return True
         return False
 
 
-class BookingDetailView(LoginRequiredMixin, DetailView):
+class BookingDetail
+    success_url = reverse_lazy('booking_home')View(LoginRequiredMixin, DetailView):
     model = Booking
 
-
+-
 class SelectHaircutView(LoginRequiredMixin, CreateView):
     model = Booking
     template_name = 'booking_system/select_package.html'
@@ -53,8 +53,8 @@ class SelectHaircutView(LoginRequiredMixin, CreateView):
 
 class CreateBooking(LoginRequiredMixin, CreateView):
     model = Booking
-    template_name = 'karting/create-booking.html'
-    success_url = reverse_lazy('booking_home')
+    template_name = 'karting/create_booking.html'
+    success_url = reverse_lazy('booking-home')
     form_class = BookingForm
 
     def form_valid(self, form):

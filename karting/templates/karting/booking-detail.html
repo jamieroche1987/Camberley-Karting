@@ -17,7 +17,8 @@
       </p>
       <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-primary" type="button">Edit Race Day</button>
-        <button class="btn btn-danger" type="button">Cancel Race Day</button>
+        <a href="{% url 'booking-delete' booking.id %}"
+        <button class="btn btn-danger" type="button">Cancel Race Day</button></a>
       </div>
     </div>
   </div>

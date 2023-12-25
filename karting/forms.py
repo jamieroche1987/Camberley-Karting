@@ -1,4 +1,4 @@
-from .models import Booking, BOOKING_TIME
+from .models import Booking, Services, BOOKING_TIME
 from django import forms
 from datetime import datetime
 from django.forms.widgets import DateInput
@@ -33,13 +33,35 @@ class BookingForm(forms.ModelForm):
 
 
 class Selectpackage(forms.ModelForm):
+    #     class Meta:
+    #         model = Booking
+    #         fields = ["date_of_booking", "service_name",]
+    #         widgets = {'date_of_booking': DateInput(attrs={'type': 'date'}),
+    #                    'service_name': forms.HiddenInput(), }
+
+    #         labels = {
+    #             'date_of_booking': 'Date',
+    #             'service_name': 'Haircut',
+    #             }
+
+    # Form Wizard Forms
+
+
+class SelectPaackageForm(forms.ModelForm):
+    class Meta:
+        model = Services
+        fields = ('service_name',)
+        # widgets = {'service_name': forms.Select(attrs={'class': 'service-dropdown'})}  # to use buttons for the options
+
+
+class SelectDateForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ["date_of_booking", "service_name",]
-        widgets = {'date_of_booking': DateInput(attrs={'type': 'date'}),
-                   'service_name': forms.HiddenInput(), }
+        fields = ('date_of_booking',)
+        widgets = {'date_of_booking': DateInput(attrs={'type': 'date'})}
 
-        labels = {
-            'date_of_booking': 'Date',
-            'service_name': 'package',
-        }
+
+class SelectTimeForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ('start_time',)
