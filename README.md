@@ -14,19 +14,17 @@
 
 ### User Stories
 
-1. 
+1.
 
 #
 
 ### 1. Strategy
 
-+ **Project Goal**
-
-   
+- **Project Goal**
 
 ### 2. Scope
 
-+ 
+-
 
 ## Functional Scope
 
@@ -37,80 +35,51 @@
 <br>
 
 ![MRI Flowchart]()
+
 </details>
 
 **Agile Methodology**
 
-
-
 ### 3. Structure
-
-
 
 ### 4. Skeleton
 
-+ Wireframes created with Balsamiq. <br>
-
+- Wireframes created with Balsamiq. <br>
 
 * Colours
 
-
-
-
 **Font Selection**
- 
 
 ## Existing Features
 
 ### **Navbar**
 
-
-
-
 ### **Custom 404 Page not found**
-
-
 
 ### **Custom 500 Internal server error**
 
-
-
-
-
 ### **Custom 403 Forbidden page**
 
-
-
 #
+
 ## Future Features
 
-
-
 #
+
 ## Languages Used
 
 <
+
 ## Frameworks, Libraries & Programs Used
-
-
 
 ## Testing and Code validation
 
-
-
 ## Deployment
-
-
-
-
-
-
 
 ## Credits and references
 
 ### Images
 
-* 
+-
 
 ## Acknowledgements
-
