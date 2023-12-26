@@ -7,7 +7,7 @@ from django.views import View
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date
 from .forms import (BookingForm,
-                    SelectPackagesForm,
+                    # SelectPackagesForm,
                     SelectDateForm,
                     SelectTimeForm)
 from .forms import BookingForm, SelectPackage
@@ -48,25 +48,20 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class UpdateBookingView(UpdateView):
+class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Booking
     template_name = 'karting/booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
 
-    #     def get_object(self, queryset=None):
-    #     pk = self.kwargs.get('pk')
-    #     return get_object_or_404(Booking, pk=pk)
-
-     def form_valid(self, form):
-        form.instance.username = self.request.user
+    def form_valid(self, form):
         form.instance.calculateEndTime()
         return super().form_valid(form)
 
-
-    # def test_func(self):
-    #     booking = self.get_object()
-    #     return self.request.user == booking.username or self.request.user.is_superuser
+    def test_func(self):
+        booking = self.get_object()
+        return (self.request.user == booking.username or
+                self.request.user.is_superuser)
 
 
 class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -74,11 +69,13 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def test_func(self):
         booking = self.get_object()
-        return self.request.user == booking.username or self.request.user.is_superuser
+        return (self.request.user == booking.username or
+                self.request.user.is_superuser)
 
     def test_func(self):
         booking = self.get_object()
-        return self.request.user == booking.username or self.request.user.is_superuser
+        return (self.request.user == booking.username or
+                self.request.user.is_superuser)
 
 
 class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -94,7 +91,8 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         booking = self.get_object()
-        return self.request.user == booking.username or self.request.user.is_superuser
+        return (self.request.user == booking.username or
+                self.request.user.is_superuser)
 
 
 class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -102,7 +100,8 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def test_func(self):
         booking = self.get_object()
-        return self.request.user == booking.username or self.request.user.is_superuser
+        return (self.request.user == booking.username or
+                self.request.user.is_superuser)
 
 
 class BookingDeleteView(DeleteView):
@@ -111,7 +110,8 @@ class BookingDeleteView(DeleteView):
 
     def test_func(self):
         booking = self.get_object()
-        return self.request.user == booking.username or self.request.user.is_superuser
+        return (self.request.user == booking.username or
+                self.request.user.is_superuser)
 
 
 # class BookingWizardView(LoginRequiredMixin, SessionWizardView):
