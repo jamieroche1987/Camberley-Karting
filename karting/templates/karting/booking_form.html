@@ -1,11 +1,11 @@
-{% extends "base.html" %}{% load crispy_forms_tags %}{% load account %} {% block
-content %}
+{% extends "base.html" %} {% load crispy_forms_tags %} {% load account %} {%
+block content %}
 <div class="container mt-5 justify-content-center align-items-center">
   <div class="row justify-content-center">
     <div class="col-md-6 card push-down grey-shadow">
       {% if form.errors %}
       <div class="alert bg-danger text-center container-sm">
-        <h2>We had an issue booking your Race Day</h2>
+        <h2>We had an issue booking your haircut</h2>
         <br />
 
         {% for field, errors in form.errors.items %}
@@ -28,9 +28,9 @@ content %}
           <div class="container d-flex justify-content-center">
             <button
               type="submit"
-              class="btn form-style custom-button-dark-greymt-3 pt-3"
+              class="btn form-style custom-button-dark-grey mt-3 pt-3"
             >
-              <h3>Book Race Day</h3>
+              <h3>Book Your Race Day</h3>
             </button>
           </div>
         </form>

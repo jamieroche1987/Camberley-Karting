@@ -48,24 +48,11 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class UpdateBookingView(UpdateView):
     model = Booking
     template_name = 'karting/booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
-
-    def get_object(self, queryset=None):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(Booking, pk=pk)
-
-    def form_valid(self, form):
-        form.instance.username = self.request.user
-        form.instance.calculateEndTime()
-        return super().form_valid(form)
-
-    def test_func(self):
-        booking = self.get_object()
-        return self.request.user == booking.username or self.request.user.is_superuser
 
 
 class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -104,7 +91,7 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.request.user == booking.username or self.request.user.is_superuser
 
 
-class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class BookingDeleteView(DeleteView):
     model = Booking
     success_url = reverse_lazy('booking-home')
 
@@ -112,34 +99,19 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         booking = self.get_object()
         return self.request.user == booking.username or self.request.user.is_superuser
 
-# TEST VIEW FOR SELECTING A KARTING PACKAGE
 
+# class BookingWizardView(LoginRequiredMixin, SessionWizardView):
+#     form_list = [SelectHaircutForm, SelectDateForm, SelectTimeForm]
+#     template_name = 'booking_system/booking_wizard.html'
 
-class SelectPackageView(LoginRequiredMixin, CreateView):
-    model = Booking
-    # karting/booking_form.html is the default
-    template_name = 'karting/select_package.html'
-    form_class = SelectPackage
+#     def form_valid(self, form):
+#         form.instance.username = self.request.user
+#         form.instance.calculateEndTime()
+#         return super().form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = Services.objects.all()
-        return context
+#     def done(self, form_list, **kwargs):
+#         for form in form_list:
+#             print(form.cleaned_data)
+#             form.save()
 
-
-class BookingWizardView(LoginRequiredMixin, SessionWizardView):
-    form_list = [SelectPackagesForm, SelectDateForm, SelectTimeForm]
-    template_name = 'karting/booking_create.html'
-
-    def form_valid(self, form):
-        form.instance.username = self.request.user
-        form.instance.calculateEndTime()
-
-        return super().form_valid(form)
-
-    def done(self, form_list, **kwargs):
-        for form in form_list:
-            print(form.cleaned_data)
-            form.save()
-
-        return HttpResponseRedirect(reverse('booking-home'))
+#         return HttpResponseRedirect(reverse('booking-home'))
