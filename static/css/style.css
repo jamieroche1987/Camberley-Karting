@@ -60,7 +60,6 @@ h5 {
     top: 0;
     left: 0;
     z-index: 1;
-    /* height:fit-content; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -76,6 +75,28 @@ h5 {
     box-shadow: 0 0.2rem 1rem var(--clr-blue);
 }
 
+.custom-button-dark-grey:hover {
+    transition: .5s ease-in-out;
+    background-color: var(--clr-grey);
+    color: var(--clr-dark);
+    box-shadow: 0 0.2rem 1rem var(--clr-dark);
+    transform: scale(1.01);
+}
+
+.custom-button-light-grey {
+    transition: .5s ease-in-out;
+    background-color: var(--clr-light);
+    color: var(--clr-gold);
+    box-shadow: 0 0.2rem 1rem var(--clr-grey);
+}
+
+.custom-button-light-grey:hover {
+    transition: .5s ease-in-out;
+    background-color: var(--clr-grey);
+    color: var(--clr-light);
+    box-shadow: 0 0.2rem 1rem var(--clr-dark);
+    transform: scale(1.01);
+}
 
 /* Home Page */
 
