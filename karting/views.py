@@ -12,7 +12,11 @@ from .forms import (BookingForm,
                     SelectTimeForm)
 from .forms import BookingForm, SelectPackage
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import (CreateView,
+                                  ListView,
+                                  DetailView,
+                                  UpdateView,
+                                  DeleteView)
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
@@ -49,6 +53,10 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'karting/booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Booking, pk=pk)
 
     def form_valid(self, form):
         form.instance.username = self.request.user
