@@ -5,7 +5,7 @@ from django.urls import path
 urlpatterns = [
     path('booking/', views.BookingsListView.as_view(),
          name='booking-home'),
-    path('booking/create', views.CreateBookingView.as_view(),
+    path('booking-create', views.CreateBookingView.as_view(),
          name='booking-create'),  # original booking form
     path('booking/<int:pk>/', views.BookingDetailView.as_view(),
          name='booking-detail'),
@@ -13,6 +13,6 @@ urlpatterns = [
          name='booking-update'),
     path('booking/<int:pk>/delete/', views.BookingDeleteView.as_view(),
          name='booking-delete'),
-    # path('booking/booking-wizard/', views.BookingWizardView.as_view(
-    #     [views.SelectPackageForm, views.SelectDateForm, views.SelectTimeForm]), name='booking-wizard'),
+    path('booking/booking-wizard/', views.BookingWizardView.as_view(
+         [views.SelectPackageForm, views.SelectDateForm, views.SelectTimeForm]), name='booking-wizard'),
 ]

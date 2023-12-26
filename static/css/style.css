@@ -98,6 +98,11 @@ h5 {
     transform: scale(1.01);
 }
 
+
+.font-kalnia {
+    font-family: 'kalnia', serif;
+}
+
 /* Home Page */
 
 .hero-container {

@@ -47,7 +47,20 @@
       </a>
     </div>
   </div>
-  {% endif %} {% if is_paginated %}
+  {% endif %} 
+  
+<!-- Booking Wizard Link -->
+
+
+<a href="{% url 'booking-wizard' %}" class="link-underline link-underline-opacity-0">
+    <div class="d-flex justify-content-center p-3">
+        <button class="btn custom-button-dark-grey pt-3 " type="button">
+            <h2>Booking Wizard</h2>
+        </button>
+    </div>
+</a>
+
+  {% if is_paginated %}
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
