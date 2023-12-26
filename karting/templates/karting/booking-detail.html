@@ -16,9 +16,18 @@
         {{ booking.end_time }}
       </p>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">Edit Race Day</button>
-        <a href="{% url 'booking-delete' booking.id %}"
-        <button class="btn btn-danger" type="button">Cancel Race Day</button></a>
+        <a
+          href="{% url 'booking-update' booking.id %}"
+          class="btn btn-primary"
+          type="button"
+          >Edit Race Day</a
+        >
+        <a
+          href="{%  url 'booking-delete' booking.id  %}"
+          class="btn btn-danger"
+          type="button"
+          >Cancel Race Day</a
+        >
       </div>
     </div>
   </div>
