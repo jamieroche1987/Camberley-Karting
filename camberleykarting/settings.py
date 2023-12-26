@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap4',
-    'formtools'
+    'formtools',
     'karting',
     'home',
 ]
@@ -68,7 +68,9 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jamieroche1987-camberley-6w4y7u3lqh.us2.codeanyapp.com',
+    'https://camberleykarting.herokuapp.com', 'https://camberleykarting-609b5eae883e.herokuapp.com', 'https://8000-jamieroche1987-camberley-tlty2fmj32.us2.codeanyapp.com',]
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
@@ -105,6 +107,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'camberleykarting.wsgi.application'
 

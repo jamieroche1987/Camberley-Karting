@@ -29,7 +29,7 @@ class Services(models.Model):
         str: A string representing the name of the service.
     """
     service_name = models.CharField(max_length=250)
-    session_length = models.DurationField()
+    session_length = models.DurationField(null=True)
     cost = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):

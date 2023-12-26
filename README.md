@@ -41,7 +41,6 @@
 
 **Agile Methodology**
 
-All functionality and development of this project were managed using **Trello** ()
 
 
 ### 3. Structure

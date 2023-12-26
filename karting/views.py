@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from formtools.wizard.views import SessionWizardView
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -9,10 +10,9 @@ from .forms import (BookingForm,
                     SelectPackagesForm,
                     SelectDateForm,
                     SelectTimeForm)
-from .forms import BookingForm, Selectpackage
+from .forms import BookingForm, SelectPackage
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, ListView, DetailView, UpdateView,
-DeleteView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
@@ -44,34 +44,59 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class BookingDetailView(LoginRequiredMixin, DetailView):
+class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Booking
+    template_name = 'karting/booking_form.html'
+    success_url = reverse_lazy('booking-home')
+    form_class = BookingForm
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Booking, pk=pk)
+
+    def form_valid(self, form):
+        form.instance.username = self.request.user
+        form.instance.calculateEndTime()
+        return super().form_valid(form)
+
+    def test_func(self):
+        booking = self.get_object()
+        return self.request.user == booking.username or self.request.user.is_superuser
 
 
-class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Booking
 
     def test_func(self):
         booking = self.get_object()
-       if self.request.user == booking.username or 
-       self.request.username.is_superuser:
-            return True
-        return False
+        return self.request.user == booking.username or self.request.user.is_superuser
+
+
+class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Booking
+    success_url = reverse_lazy('booking-home')
+
+    def test_func(self):
+        booking = self.get_object()
+        return self.request.user == booking.username or self.request.user.is_superuser
 
 # TEST VIEW FOR SELECTING A KARTING PACKAGE
-# class SelectPackageView(LoginRequiredMixin, CreateView):
-#     model = Booking
-#     template_name = 'karting/select_package.html'  # karting/booking_form.html is the default
-#     form_class = SelectPackage
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['services'] = Services.objects.all()
-#         return context
+
+class SelectPackageView(LoginRequiredMixin, CreateView):
+    model = Booking
+    # karting/booking_form.html is the default
+    template_name = 'karting/select_package.html'
+    form_class = SelectPackage
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['services'] = Services.objects.all()
+        return context
 
 
 class BookingWizardView(LoginRequiredMixin, SessionWizardView):
-    form_list = [SelectPackageForm, SelectDateForm, SelectTimeForm]
+    form_list = [SelectPackagesForm, SelectDateForm, SelectTimeForm]
     template_name = 'karting/booking_create.html'
 
     def form_valid(self, form):
