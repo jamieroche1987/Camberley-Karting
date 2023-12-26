@@ -1,6 +1,6 @@
 from .models import Booking, Services, BOOKING_TIME
 from django import forms
-from datetime import datetime
+from datetime import datetime, date
 from django.forms.widgets import DateInput
 from django.core.exceptions import ValidationError
 
@@ -31,37 +31,32 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
         }
 
+    def clean(self):
+        cleaned_data = super().clean()
+        date_of_booking = cleaned_data.get('date_of_booking')
 
-class SelectPackage(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ["date_of_booking", "service_name",]
-        widgets = {'date_of_booking': DateInput(attrs={'type': 'date'}),
-                   'service_name': forms.HiddenInput(), }
-
-        labels = {
-            'date_of_booking': 'Date',
-            'service_name': 'package',
-        }
+        if date_of_booking and date_of_booking < date.today():
+            raise ValidationError('Please select a date in the future.')
 
 
 class SelectPackagesForm(forms.ModelForm):
     class Meta:
         model = Booking()
         fields = ['service_name',]
-        # widgets = {'service_name': forms.Select(attrs={'class': 'service-buttons'})}  # to use buttons for the options
+        widgets = {'service_name': forms.Select(
+            attrs={'class': 'service-buttons'})}
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['services'] = Services.objects.all()
         return context
 
+    def clean(self):
+        cleaned_data = super().clean()
+        date_of_booking = cleaned_data.get('date_of_booking')
 
-class SelectDateForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ['date_of_booking',]
-        widgets = {'date_of_booking': DateInput(attrs={'type': 'date'})}
+        if date_of_booking and date_of_booking < date.today():
+            raise ValidationError('Please select a date in the future.')
 
 
 class SelectTimeForm(forms.ModelForm):

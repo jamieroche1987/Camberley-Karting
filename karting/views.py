@@ -6,10 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date, datetime
-from .forms import (BookingForm,
-                    # SelectPackagesForm,
-                    SelectDateForm,
-                    SelectTimeForm)
+from .forms import (BookingForm, SelectPackagesForm,
+                    SelectDateForm, SelectTimeForm)
 from .forms import BookingForm, SelectPackage
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (CreateView,
@@ -115,7 +113,7 @@ class BookingDeleteView(DeleteView):
 
 
 class BookingWizardView(LoginRequiredMixin, SessionWizardView):
-    form_list = [SelectPackagetForm, SelectDateForm, SelectTimeForm]
+    form_list = [SelectPackageForm, SelectDateForm, SelectTimeForm]
     template_name = 'karting/booking_wizard.html'
 
     def form_valid(self, form):
