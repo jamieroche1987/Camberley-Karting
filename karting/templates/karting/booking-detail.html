@@ -23,10 +23,6 @@
             <a href="{% url 'booking-update' booking.id %}" class="btn custom-button-light-grey pt-3" type="button">
                 <h5>Edit Your Race Day</h5>
             </a>
-        <form method="post">
-          {% csrf_token %} {{ booking_form.as_p }}
-          <input type="submit" value="Save" />
-        </form>
         <a
           href="{%  url 'booking-delete' booking.id  %}"
           class="btn custom-button-dark-grey pt-3 light-text"
