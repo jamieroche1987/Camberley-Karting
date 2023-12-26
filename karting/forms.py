@@ -11,8 +11,8 @@ class BookingForm(forms.ModelForm):
     Form to create and edit a race day booking.
     Fields:
         - date_of_booking: Date field for selecting the booking date.
-        - service_name: Dropdown for selecting the race day service.
-        - start_time: Time field for selecting the booking time of the race day.
+        - service_name: Dropdown for selecting the Race day service.
+        - start_time: Time field for selecting the booking time.
     Widget:
         - date_of_booking: DateInput widget with type 'date' for a date picker.
     Labels:
@@ -30,13 +30,17 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
         }
 
-        def clean(self):
-            cleaned_data = super().clean()
-            date_of_booking = cleaned_data.get('date_of_booking')
+    def clean(self):
+        cleaned_data = super().clean()
+        date_of_booking = cleaned_data.get('date_of_booking')
+        start_time = cleaned_data.get('start_time')
 
-            if date_of_booking and date_of_booking < date.today():
-                raise ValidationError('Please select a different day.')
+        if date_of_booking and date_of_booking < date.today():
+            raise ValidationError('Please select a different date in the future.')
 
+        if date_of_booking == date.today() and \
+                start_time < datetime.now().time():
+            raise ValidationError('Please select a different time in the future.')
 
 # Form Wizard Forms
 class SelectPackageForm(forms.ModelForm):
