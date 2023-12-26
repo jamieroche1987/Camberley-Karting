@@ -1,29 +1,41 @@
 {% extends "base.html" %}{% load crispy_forms_tags %}{% load account %} {% block
 content %}
-<div class="container mt-5">
-  {% if form.errors %}
-  <div class="alert bg-danger text-center container-sm">
-    <h2>We had an issue booking your Race Day Booking</h2>
-    <br />
-    {% for field, errors in form.errors.items %}
-    <p>{{ field }}: {{ errors.0 }}</p>
-    {% endfor %}
-  </div>
-  {% endif %}
+<div class="container mt-5 justify-content-center align-items-center">
+  <div class="row justify-content-center">
+    <div class="col-md-6 card push-down grey-shadow">
+      {% if form.errors %}
+      <div class="alert bg-danger text-center container-sm">
+        <h2>We had an issue booking your Race Day</h2>
+        <br />
 
-  <div class="m-3">
-    <form
-      method="POST"
-      action="{% url 'booking-create' %}"
-      class="form mb-2 p-2 form-style"
-      enctype="multipart/form-data"
-    >
-      <h1 class="text-center pt-5">Book a Race Day</h1>
-      {% csrf_token %} {{ form | crispy }} {{ form.media }}
-      <button type="submit" class="btn form-style custom-button-dark-grey mt-3">
-        Book A Race Day
-      </button>
-    </form>
+        {% for field, errors in form.errors.items %}
+
+        <p>{{ field }}: {{ errors.0 }}</p>
+
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="m-3">
+        <form
+          method="POST"
+          action="{% url 'booking-create' %}"
+          class="form mb-2 p-2 form-style"
+          enctype="multipart/form-data"
+        >
+          <h1 class="text-center pt-5">Book Your Race Day</h1>
+          {% csrf_token %} {{ form | crispy }} {{ form.media }}
+          <div class="container d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn form-style custom-button-dark-greymt-3 pt-3"
+            >
+              <h3>Book Race Day</h3>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 

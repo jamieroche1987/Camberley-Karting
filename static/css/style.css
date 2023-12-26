@@ -76,12 +76,6 @@ h5 {
     box-shadow: 0 0.2rem 1rem var(--clr-blue);
 }
 
-/* Login Page */
-
-.login-card {
-    position: relative;
-    top: 3rem;
-}
 
 /* Home Page */
 
@@ -106,8 +100,7 @@ h5 {
 .package-hover {
     transition: 0.5s ease-in-out;
     text-decoration: none;
-    box-shadow: 0 0.2rem 1rem #483394;
-    box-shadow: 0 0.2rem 1rem var(--clr-blue);
+    box-shadow: 0 0.2rem 1rem var(--clr-grey);
 }
 
 .package-hover:hover {
@@ -115,4 +108,13 @@ h5 {
     background-color: var(--clr-light);
     color: var(--clr-dark);
     transform: scale(1.01);
+}
+
+.grey-shadow {
+    box-shadow: 0 0.2rem 1rem var(--clr-grey);
+}
+
+.push-down {
+    position: relative;
+    top: 3rem;
 }
