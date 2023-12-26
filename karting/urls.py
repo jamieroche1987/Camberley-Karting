@@ -16,5 +16,5 @@ urlpatterns = [
     path('booking/select_package/', views.SelectPackageView.as_view(),
          name='select-package'),
     path('booking/booking-create/', views.BookingWizardView.as_view(
-        [views.SelectPackagesForm, views.SelectDateForm, views.SelectTimeForm]), name='booking-wizard'),
+        [views.SelectPackagesForm, views.SelectDateForm, views.SelectTimeForm]), name='booking-wizard')
 ]

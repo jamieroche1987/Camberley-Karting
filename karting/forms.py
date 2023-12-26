@@ -48,7 +48,7 @@ class SelectPackage(forms.ModelForm):
 class SelectPackagesForm(forms.ModelForm):
     class Meta:
         model = Booking()
-        fields = ('service_name',)
+        fields = ['service_name',]
         # widgets = {'service_name': forms.Select(attrs={'class': 'service-buttons'})}  # to use buttons for the options
 
     def get_context_data(self, **kwargs):
@@ -60,7 +60,7 @@ class SelectPackagesForm(forms.ModelForm):
 class SelectDateForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ('date_of_booking',)
+        fields = ['date_of_booking',]
         widgets = {'date_of_booking': DateInput(attrs={'type': 'date'})}
 
 

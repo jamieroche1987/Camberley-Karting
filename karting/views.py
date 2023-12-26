@@ -127,12 +127,11 @@ class BookingWizardView(LoginRequiredMixin, SessionWizardView):
         form.instance.username = self.request.user
         form.instance.calculateEndTime()
 
-        print(form.instance.date_of_booking)
-        print(form.instance.start_time)
-
         return super().form_valid(form)
 
     def done(self, form_list, **kwargs):
         for form in form_list:
+            print(form.cleaned_data)
             form.save()
+
         return HttpResponseRedirect(reverse('booking-home'))
