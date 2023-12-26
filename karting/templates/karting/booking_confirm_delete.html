@@ -1,7 +1,7 @@
 {% extends "base.html" %}{% load account %} {% block content %}
 <div class="container mt-5">
   <!-- might need to use object. instead of booking. -->
-  <div class="m-3">
+  <div class="m-3 text-center">
     <form
       method="POST"
       action="{% url 'booking-delete' booking.id %}"
@@ -14,14 +14,11 @@
         booking.service_name }}?
       </p>
       {% csrf_token %} {{ form.media }}
-      <button type="submit" class="btn form-style btn-danger mt-3">
-        Yes, Please delete my Booking!
-      </button>
+      <button type="submit" class="btn form-style btn-danger mt-3"><h5 class="pt-2">Yes, Please Delete My Booking!</h5></button>
       <a
         href="{% url 'booking-detail' booking.id %}"
-        class="btn form-style custom-button-dark-grey mt-3"
-        >Cancel</a
-      >
+        class="btn form-style custom-button-dark-grey mt-3"h5 class="pt-2">Cancel</h5>
+        </a >
     </form>
   </div>
 </div>
