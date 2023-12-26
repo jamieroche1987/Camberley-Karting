@@ -40,9 +40,8 @@ class BookingForm(forms.ModelForm):
 
     #         labels = {
     #             'date_of_booking': 'Date',
-    #             'service_name': 'Haircut',
+    #             'service_name': 'package',
     #             }
-
 
 
 class SelectPackageForm(forms.ModelForm):

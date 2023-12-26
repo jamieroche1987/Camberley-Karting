@@ -5,8 +5,8 @@ from django.urls import path
 urlpatterns = [
     path('booking/', views.BookingsListView.as_view(),
          name='booking-home'),
-    path('booking/create', views.CreateBooking.as_view(),
-         name='createbooking'),
+    path('booking/create', views.CreateBookingView.as_view(),
+         name='booking-create'),
     path('booking/<int:pk>/', views.BookingDetailView.as_view(),
          name='booking-detail'),
     path('booking/<int:pk>/delete/', views.BookingDeleteView.as_view(),
@@ -15,5 +15,4 @@ urlpatterns = [
          name='select-package')
     path('booking/booking-create/', views.BookingWizardView.as_view(
         [views.SelectPackageform, views.SelectDateForm, views.SelectTimeForm]), name='booking-wizard'),
-]
 ]
