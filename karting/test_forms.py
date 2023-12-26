@@ -1,6 +1,10 @@
 from django.test import TestCase
 from datetime import datetime, timedelta
-from .forms import BookingForm, SelectPackageForm, Services, SelectDateForm
+from .forms import (BookingForm,
+                    SelectPackageForm,
+                    Services,
+                    SelectDateForm,
+                    SelectTimeForm)
 
 
 class TestBookingForm(TestCase):
@@ -22,7 +26,7 @@ class TestBookingForm(TestCase):
                                   'username': 'Testy McTester'})
         self.assertFalse(booking.is_valid())
         self.assertEqual(booking.errors,
-                         {'__all__': ['Please select a day in the future.']})
+                         {'__all__': ['Please select a different day.']})
 
     def test_service_name_is_required(self):
         booking = BookingForm({'date_of_booking': '2024-24-02',
@@ -81,4 +85,12 @@ class TestSelectDateForm(TestCase):
         booking = SelectDateForm({'date_of_booking': yesterday})
         self.assertFalse(booking.is_valid())
         self.assertEqual(booking.errors,
-                         {'__all__': ['Please select a day in the future.']})
+                         {'__all__': ['Please select a different day']})
+
+
+class TestSelectTimeForm(TestCase):
+
+    def test_select_time_is_required(self):
+        booking = SelectTimeForm({'start_time': ''})
+        self.assertFalse(booking.is_valid())
+        self.assertIn('start_time', booking.errors.keys())
