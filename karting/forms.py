@@ -30,8 +30,6 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
         }
 
-
-
     def clean(self):
         cleaned_data = super().clean()
         date_of_booking = cleaned_data.get('date_of_booking')
@@ -85,9 +83,9 @@ class SelectTimeForm(forms.ModelForm):
         fields = ['start_time',]
 
         def clean(self):
-        cleaned_data = super().clean()
-        start_time = cleaned_data.get('start_time')
-        date_of_booking = cleaned_data.get('date_of_booking')
+            cleaned_data = super().clean()
+            start_time = cleaned_data.get('start_time')
+            date_of_booking = cleaned_data.get('date_of_booking')
 
         if start_time < datetime.now().time():
             raise ValidationError(
