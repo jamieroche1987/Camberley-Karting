@@ -43,12 +43,11 @@ class BookingForm(forms.ModelForm):
     #             'service_name': 'Haircut',
     #             }
 
-    # Form Wizard Forms
 
 
 class SelectPackageForm(forms.ModelForm):
         class Meta:
-        model = Services
+        model = Booking()
         fields = ('service_name',)
         # widgets = {'service_name': forms.Select(attrs={'class': 'service-buttons'})}  # to use buttons for the options
 
