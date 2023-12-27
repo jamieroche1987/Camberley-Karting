@@ -25,7 +25,6 @@ class TestBookingForm(TestCase):
             'message': '',
         }
 
-
     def create_booking(self, additional_data=None):
         data = self.common_data.copy()
         if additional_data:
