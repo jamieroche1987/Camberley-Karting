@@ -9,13 +9,18 @@
 
   <div class="d-flex justify-content-center push-down">
     <div class="card grey-shadow p-3 m-3 text-center w-75">
-      <h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2>
-      {% if user.is_superuser %}
-      <p>{{ booking.username }} Your Race Day Has Been booked:</p>
-      {% endif %}
-      <p>
-        {{ booking.service_name }} at {{ booking.start_time|date:"g a" }} until
-        {{ booking.end_time }}
+    h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
+    {% if user.is_superuser %}
+    <h5><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h5>
+    {% endif %}
+    <h5>
+        {{ booking.service_name }} at {{ booking.start_time|date:"g:i a" }} until
+        {{ booking.end_time }}</h5>
+    {% if booking.message %}
+    
+    <h5><i class="fa-regular fa-comment"></i> Message:</h5>
+    <p>{{ booking.message }}</p>
+    {% endif %}
       </p>
       <div class="d-grid gap-2 col-6 mx-auto">
         </p>
