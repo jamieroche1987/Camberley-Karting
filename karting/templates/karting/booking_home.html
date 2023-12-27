@@ -3,12 +3,13 @@
 <div class="container mt-5 text-center push-down"></div>
 <div class="container heading">
     <hr>
-    <h1>Upcoming Race Days</h1>
+<h1>Welcome, {% user_display user %}!</h1>
     <hr>
 </div>
-<h2 class="pt-3">Welcome, {% user_display user %}!</h2>
+<h2 class="pt-3">Upcoming Race Days</h2>
 
-<p>Please select a Racw Day for more details, or update it.</p>
+<p>Please select an appointment for more details, or update it.<br>
+    If you would like to see your past race day bookings please click <a href="{% url 'booking-past' %}">here</a>.</p>
 
  {% if object_list %} {% for booking in object_list %}
 

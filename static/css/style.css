@@ -125,6 +125,12 @@ h5 {
     color: var(--clr-dark);
 }
 
+.custom-card-light-grey {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    box-shadow: 0 0.2rem 1rem var(--clr-grey);
+}
+
 /* Home Page */
 
 .hero-container {
