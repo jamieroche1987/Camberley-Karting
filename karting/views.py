@@ -270,10 +270,10 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-        model = Booking
-        template_name = 'karting/booking_confirm.html'
-        fields = ['confirmed']
-        success_url = reverse_lazy('booking-home')
+    model = Booking
+    template_name = 'karting/booking_confirm.html'
+    fields = ['confirmed']
+    success_url = reverse_lazy('booking-home')
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -281,6 +281,22 @@ class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.confirmed = True
         form.save()
+
+        if self.request.user.email:
+            service = form.instance.service_name
+            date = form.instance.date_of_booking
+            time = form.instance.start_time
+            email_subject = 'Booking Confirmed'
+            user_email = form.instance.username.email
+            email_message = (f'{form.instance.username},\n\n'
+                             f'Your {service} on {date} '
+                             f'at {time} has been confirmed!\n\n'
+                             f'Comments: {form.instance.message}\n\n'
+                             f'Looking forward to seeing you on the track.'
+                             )
+            send_email_confirmation(user_email,
+                                    email_subject,
+                                    email_message)
 
         messages.success(self.request,
                          "The booking has been confirmed!",
