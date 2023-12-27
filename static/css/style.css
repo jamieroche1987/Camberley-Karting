@@ -18,7 +18,7 @@ h5 {
     font-family: "space-mono", sans-serif;
 }
 
-/* Text Colors */
+/* Text */
 .white-text {
     transition: 0.5s ease-in-out;
     color: var(--clr-white);
@@ -30,6 +30,10 @@ h5 {
 
 .dark-text {
     color: var(--clr-dark);
+}
+
+.font-sancreek {
+    font-family: 'kalnia', serif;
 }
 
 /* Background Colors */
@@ -98,9 +102,30 @@ h5 {
     transform: scale(1.01);
 }
 
+.custom-close-btn {
+    transition: .5s ease-in-out;
+}
 
-.font-kalnia {
+.custom-close-btn:hover {
+    transition: .5s ease-in-out;
+    transform: scale(1.15) rotateZ(-20deg);
+}
+
+.open-package-modal-btn {
+    width: 80%;
+    transition: .5s ease-in-out;
+    box-shadow: 0 0.2rem 1rem var(--clr-grey);
+    border-radius: .5rem;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
     font-family: 'kalnia', serif;
+}
+
+.open-package-modal-btn:hover {
+    transition: .5s ease-in-out;
+    transform: scale(1.1);
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
 }
 
 /* Home Page */

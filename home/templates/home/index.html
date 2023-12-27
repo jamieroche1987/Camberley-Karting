@@ -128,21 +128,42 @@
     </h2>
   </div>
 
-  <div class="container col-12">
-    <div class="row justify-content-md-center">
-      {% for service in services %}
-      <div class="col-md-4 mt-4">
-    <a href="{% url 'booking-create' %}" class="packages-hover"></a>
-          <div class="card p-2 pt-3 dark-background light-text packages-hover">
-            <h4 class="pt-2">{{ service.service_name }}</h4>
-            <p>£{{ service.cost }}</p>
-          </div>
-        </a>
-      </div>
-      {% if forloop.counter|divisibleby:2%}
+   <!-- Button to trigger modal -->
+    <div class="row justify-content-center">
+    {% for service in services%}
+        <div class="col-md-5 pt-3 pt-md-5">
+            <button type="button" class="open-package-modal-btn p-4 fs-3" data-bs-toggle="modal" data-bs-target="#serviceModal{{ service.id}}">
+            {{ service.service_name}}
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="serviceModal{{ service.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{ service.id}}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel{{ service.id}}">{{ service.service_name }}</h1>
+                        <button type="button" class="btn custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>£{{ service.cost }}</p>
+                    </div>
+
+                    <div class="modal-footer justify-content-center ">
+                        {% comment %} <button type="button" class="btn custom-button-light-grey font-sancreek me-3" data-bs-dismiss="modal">Close</button> {% endcomment %}
+                        <a href="{% url 'booking-create' %}" type="button" class="btn custom-button-dark-grey font-kalnia fs-4">Book a Race Day</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
     </div>
-    <div class="row justify-content-md-center">{% endif %} {% endfor %}</div>
-  </div>
+
+
 </div>
 
 <!-- Contact -->
