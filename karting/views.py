@@ -13,6 +13,7 @@ from .forms import BookingForm
 from datetime import date
 import time
 
+
 class BookingsListView(LoginRequiredMixin, ListView):
     """
     ListView for displaying a paginated list of bookings on booking-home page.
@@ -207,7 +208,7 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
                 self.request.user.is_superuser)
 
 
-class BookingDeleteView(DeleteView):
+class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     View for deleting an existing booking.
     Attributes:
