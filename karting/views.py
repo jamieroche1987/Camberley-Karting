@@ -150,7 +150,7 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
                              f'Comments: {form.instance.message}\n\n'
                              f'Looking forward to seeing you take to the track.'
                              )
-               send_email_confirmation(user_email,
+            send_email_confirmation(user_email,
                                     email_subject,
                                     email_message)
 
@@ -173,7 +173,7 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         - form_class: The form class to use for updating a booking.
     Methods:
         - form_valid(form): Overrides the form_valid method for customization.
-        Calculates the end time after a successful form submission and sends a 
+        Calculates the end time after a successful form submission and sends a
         confirmation email to the user.
         - test_func(): Checks if the current user is allowed to update the
         booking.
@@ -185,24 +185,26 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = BookingForm
 
 
-def form_valid(self, form):
-    form.instance.calculateEndTime()
+    def form_valid(self, form):
+         form.instance.calculateEndTime()
 
-    if self.request.user.email:
-        service = form.instance.service_name
-        date = form.instance.date_of_booking
-        time = form.instance.start_time
-        email_subject = 'Booking Updated'
-        user_email = form.instance.username.email
-        email_message = (f'{form.instance.username},\n\n'
-                         f'Your {service} on {date} '
-                         f'at {time} has been updated!\n\n'
-                         f'Comments: {form.instance.message}\n\n'
-                         f'Looking forward to seeing you take to the track.'
-                         )
-        send_email_confirmation(email_user,
-                                email_subject,
-                                email_message)
+    def form_valid(self, form):
+        form.instance.calculateEndTime()
+        if self.request.user.email:
+            service = form.instance.service_name
+            date = form.instance.date_of_booking
+            time = form.instance.start_time
+            email_subject = 'Booking Updated'
+            user_email = form.instance.username.email
+            email_message = (f'{form.instance.username},\n\n'
+                             f'Your {service} on {date} '
+                             f'at {time} has been updated!\n\n'
+                             f'Comments: {form.instance.message}\n\n'
+                             f'Looking forward to seeing you then.'
+                             )
+            send_email_confirmation(user_email,
+                                    email_subject,
+                                    email_message)
 
         messages.success(
             self.request,
@@ -210,7 +212,7 @@ def form_valid(self, form):
             extra_tags="alert alert-success alert-dismissible",
         )
 
-    return super().form_valid(form)
+        return super().form_valid(form)
 
 
 def test_func(self):
@@ -266,3 +268,23 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         booking = self.get_object()
         return (self.request.user == booking.username or
                 self.request.user.is_superuser)
+
+
+class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+        model = Booking
+        template_name = 'karting/booking_confirm.html'
+        fields = ['confirmed']
+        success_url = reverse_lazy('booking-home')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def form_valid(self, form):
+        form.instance.confirmed = True
+        form.save()
+
+        messages.success(self.request,
+                         "The booking has been confirmed!",
+                         extra_tags="alert alert-success alert-dismissible",
+                         )
+        return super().form_valid(form)

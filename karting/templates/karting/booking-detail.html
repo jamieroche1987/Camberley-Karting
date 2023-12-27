@@ -1,58 +1,51 @@
 {% extends "base.html" %} {% block content %} {% load account %}
+\
 <!-- booking should be object to comply with django's default -->
+
 <div class="container mt-5">
-  {% comment %}
-  <h1 class="pt-5 text-center">Welcome, {% user_display user %}!</h1>
-  {% endcomment %}
+    {% comment %}
+    <h1 class="pt-5 text-center">Welcome, {% user_display user %}!</h1>
+    {% endcomment %}
+    <div class="d-flex justify-content-center push-down">
+        <div class="card grey-shadow p-3 m-3 text-center w-75 pb-5">
 
-  <div class="d-flex justify-content-center push-down">
-    <div class="card grey-shadow p-3 m-3 text-center w-75 pb-5">
-      <div class="d-flex justify-content-end">
-        <a
-          href="{% url 'booking-home' %}"
-          class="btn btn-outline-dark grey-shadow custom-close-btn"
-          ><i class="fa-solid fa-flag-checkered"></i
-        ></a>
-      </div>
-      <div>
-        <h2 class="text-center">
-          {{ booking.date_of_booking|date:"l j F Y" }}
-        </h2>
-        <br />
-      </div>
+            <div class="d-flex justify-content-end ">
+                <a href="{% url 'booking-home' %}" class="btn btn-outline-dark grey-shadow custom-close-btn"><i class="fa-solid fa-flag-checkered"></i>
+            </div>
+            <div>
+                <h2 class="text-center">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
+            </div>
+            {% if user.is_superuser %}
+            <h5><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h5>
+            {% endif %}
+            <h5>
+                {{ booking.service_name }} at {{ booking.start_time|date:"g:i a" }} until
+                {{ booking.end_time }}</h5>
+            {% if booking.message %}
+            <h5><i class="fa-regular fa-comment"></i> Message:</h5>
+            <p>{{ booking.message }}</p>
+            {% endif %}
 
-      {% if user.is_superuser %}
-      <h5><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h5>
-      {% endif %}
-      <h5>
-        {{ booking.service_name }} at {{ booking.start_time|date:"g:i a" }}
-        until {{ booking.end_time }}
-      </h5>
-      {% if booking.message %}
-      <h5><i class="fa-regular fa-comment"></i> Message:</h5>
-      <p>{{ booking.message }}</p>
-      {% endif %} {% if booking.confirmed %}
-      <p>Booking Confirmed</p>
-      {% else %}
-      <p>Not Yet Confirmed</p>
-      {% endif %}
-
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <a
-          href="{% url 'booking-update' booking.id %}"
-          class="btn custom-button-light-grey pt-3"
-          type="button"
-        >
-          <h5>Edit Race Day</h5>
-        </a>
-        <a
-          href="{%  url 'booking-delete' booking.id  %}"
-          class="btn custom-button-dark-grey pt-3 light-text"
-          type="button"
-        >
-          <h5>Cancel Race Day</h5>
-        </a>
-      </div>
+            {% if booking.confirmed %}
+            <p><i class="fa-regular fa-circle-check"></i> Booking Confirmed</p>
+            {% else %}
+            <p><i class="fa-regular fa-circle-xmark"></i> Not Yet Confirmed</p>
+            {% if user.is_superuser %}
+            <form method="post" action="{% url 'confirm-booking' pk=object.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success mb-3 grey-shadow">Confirm Your Booking</button>
+            </form> {% endif %}
+            {% endif %}
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="{% url 'booking-update' booking.id %}" class="btn custom-button-light-grey pt-3" type="button">
+                    <h5>Edit Race Day</h5>
+                </a>
+                <a href="{%  url 'booking-delete' booking.id  %}" class="btn custom-button-dark-grey pt-3 light-text"
+                    type="button">
+                    <h5>Cancel Race Day</h5>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+{% endblock %}
