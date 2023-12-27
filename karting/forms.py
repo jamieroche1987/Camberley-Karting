@@ -11,7 +11,7 @@ class BookingForm(forms.ModelForm):
     Form to create and edit a race day booking.
     Fields:
         - date_of_booking: Date field for selecting the booking date.
-        - service_name: Dropdown for selecting the Race day service.
+        - service_name: Dropdown for selecting the race day service.
         - start_time: Time field for selecting the booking time.
     Widget:
         - date_of_booking: DateInput widget with type 'date' for a date picker.
@@ -34,29 +34,23 @@ class BookingForm(forms.ModelForm):
         cleaned_data = super().clean()
         date_of_booking = cleaned_data.get('date_of_booking')
         start_time = cleaned_data.get('start_time')
-
         if date_of_booking and date_of_booking < date.today():
-            raise ValidationError(
-                'Please select a different date in the future.')
-
+            raise ValidationError('Please select a different day.')
         if date_of_booking == date.today() and \
                 start_time < datetime.now().time():
-            raise ValidationError(
-                'Please select a different time in the future.')
-
-            existing_bookings = Booking.objects.filter(
-                date_of_booking=date_of_booking,
-                start_time=start_time
-            )
+            raise ValidationError('Please select a time in the future.')
+        existing_bookings = Booking.objects.filter(
+            date_of_booking=date_of_booking,
+            start_time=start_time
+        ).exclude(id=self.instance.id)
 
         if existing_bookings:
-            raise ValidationError('Unfortunately that time is already taken, '
+            raise ValidationError('That time is already taken, '
                                   'please select a different time.')
-
 # Form Wizard Forms
 
 
-class SelectPackageForm(forms.ModelForm):
+class SelectHaircutForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['service_name',]
@@ -72,9 +66,8 @@ class SelectDateForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         date_of_booking = cleaned_data.get('date_of_booking')
-
         if date_of_booking and date_of_booking < date.today():
-            raise ValidationError('Please select a different day.')
+            raise ValidationError('Cannot select previous dates.')
 
 
 class SelectTimeForm(forms.ModelForm):
@@ -82,20 +75,16 @@ class SelectTimeForm(forms.ModelForm):
         model = Booking
         fields = ['start_time',]
 
-        def clean(self):
-            cleaned_data = super().clean()
-            start_time = cleaned_data.get('start_time')
-            date_of_booking = cleaned_data.get('date_of_booking')
-
+    def clean(self):
+        cleaned_data = super().clean()
+        start_time = cleaned_data.get('start_time')
+        date_of_booking = cleaned_data.get('date_of_booking')
         if start_time < datetime.now().time():
-            raise ValidationError(
-                'Please select a different time in the future.')
-
+            raise ValidationError('Cannot select previous dates.')
         existing_bookings = Booking.objects.filter(
             date_of_booking=date_of_booking,
             start_time=start_time
         )
-
         if existing_bookings:
             raise ValidationError('That time is already taken, '
                                   'please select a different time.')
