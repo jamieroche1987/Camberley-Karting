@@ -109,6 +109,7 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.username = self.request.user
         form.instance.calculateEndTime()
+
     def form_valid(self, form):
         form.instance.username = self.request.user
         form.instance.calculateEndTime()
@@ -157,36 +158,39 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
+
+
 def form_valid(self, form):
-        form.instance.calculateEndTime()
+    form.instance.calculateEndTime()
 
-        if self.request.user.email:
-            service = form.instance.service_name
-            date = form.instance.date_of_booking
-            time = form.instance.start_time
-            email_subject = 'Booking Updated'
-            email_message = (f'{form.instance.username},\n\n'
-                             f'Your {service} on {date} '
-                             f'at {time} has been updated!\n\n'
-                             f'Comments: {form.instance.message}\n\n'
-                             f'Looking forward to seeing you take to the track.'
-                             )
-            send_email_confirmation(self.request.user,
-                                    email_subject,
-                                    email_message)
+    if self.request.user.email:
+        service = form.instance.service_name
+        date = form.instance.date_of_booking
+        time = form.instance.start_time
+        email_subject = 'Booking Updated'
+        email_message = (f'{form.instance.username},\n\n'
+                         f'Your {service} on {date} '
+                         f'at {time} has been updated!\n\n'
+                         f'Comments: {form.instance.message}\n\n'
+                         f'Looking forward to seeing you take to the track.'
+                         )
+        send_email_confirmation(self.request.user,
+                                email_subject,
+                                email_message)
 
-                                    messages.success(
+        messages.success(
             self.request,
             "Your booking has been successfully updated!",
             extra_tags="alert alert-success alert-dismissible",
         )
 
-        return super().form_valid(form)
+    return super().form_valid(form)
+
 
 def test_func(self):
-        booking = self.get_object()
-        return (self.request.user == booking.username or
-                self.request.user.is_superuser)
+    booking = self.get_object()
+    return (self.request.user == booking.username or
+            self.request.user.is_superuser)
 
 
 class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
