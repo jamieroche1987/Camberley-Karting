@@ -66,17 +66,30 @@ INSTALLED_APPS = [
     'karting',
     'home',
 ]
-
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'booking/'
-LOGOUT_REDIRECT_URL = '/'
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# Email Settings
+LOGIN_REDIRECT_URL = '/booking/'
+LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jamieroche1987@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_USE_TLS = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-jamieroche1987-camberley-6w4y7u3lqh.us2.codeanyapp.com',
     'https://camberleykarting.herokuapp.com', 'https://camberleykarting-609b5eae883e.herokuapp.com', 'https://8000-jamieroche1987-camberley-tlty2fmj32.us2.codeanyapp.com',]
@@ -105,6 +118,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATES_DIR],
+        # 'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
