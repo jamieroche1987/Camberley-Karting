@@ -121,7 +121,6 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         Rendered template with booking details.
     """
     model = Booking
-   
 
     def test_func(self):
         booking = self.get_object()

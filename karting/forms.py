@@ -27,7 +27,7 @@ class BookingForm(forms.ModelForm):
         - ValidationError: If the selected date is not in the future.
         - ValidationError: If the selected time is not in the future.
         - ValidationError: If the selected date and time are already booked.
-    
+
     """
     class Meta:
         model = Booking
