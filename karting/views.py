@@ -184,7 +184,6 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
 
-
     def form_valid(self, form):
          form.instance.calculateEndTime()
 
