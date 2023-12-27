@@ -50,7 +50,7 @@ class BookingForm(forms.ModelForm):
 # Form Wizard Forms
 
 
-class SelectHaircutForm(forms.ModelForm):
+class SelectPackageForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['service_name',]

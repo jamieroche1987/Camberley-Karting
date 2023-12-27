@@ -5,7 +5,7 @@ from django.utils import timezone
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date, datetime
 from .forms import (BookingForm,
-                    #SelectPackage,
+                    # SelectPackage,
                     SelectPackageForm,
                     SelectDateForm,
                     SelectTimeForm)
@@ -53,7 +53,7 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
 
 class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Booking
-    template_name = 'kartingbooking_form.html'
+    template_name = 'booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
 
@@ -89,7 +89,7 @@ class BookingDeleteView(DeleteView):
 
 class BookingWizardView(LoginRequiredMixin, SessionWizardView):
     form_list = [SelectPackageForm, SelectDateForm, SelectTimeForm]
-    template_name = 'booking_system/booking_wizard.html'
+    template_name = 'karting/booking_wizard.html'
 
     def form_valid(self, form):
         form.instance.username = self.request.user
