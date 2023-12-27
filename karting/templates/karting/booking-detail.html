@@ -1,18 +1,12 @@
 {% extends "base.html" %} {% block content %} {% load account %}
-\
-<!-- booking should be object to comply with django's default -->
 
 <div class="container mt-5">
-    {% comment %}
-    <h1 class="pt-5 text-center">Welcome, {% user_display user %}!</h1>
-    {% endcomment %}
+
     <div class="d-flex justify-content-center push-down">
         <div class="card grey-shadow p-3 m-3 text-center w-75 pb-5">
-
             <div class="d-flex justify-content-end ">
                 <a href="{% url 'booking-home' %}" class="btn btn-outline-dark grey-shadow custom-close-btn"><i class="fa-solid fa-flag-checkered"></i>
             </div>
-            <div>
                 <h2 class="text-center">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
             </div>
             {% if user.is_superuser %}

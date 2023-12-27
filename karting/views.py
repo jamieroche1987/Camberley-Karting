@@ -43,12 +43,11 @@ class BookingsListView(LoginRequiredMixin, ListView):
         current_time = time.strftime("%H:%M:%S", time.gmtime())
         form = BookingSearchForm(self.request.GET)
 
-        if form.is_valid():
-            search_query = form.cleaned_data['search_query']
-            selected_date = form.cleaned_data['selected_date']
-
-            # Allows admin to search bookings
-            if self.request.user.is_superuser:
+       # Allow admin to search bookings
+        if self.request.user.is_superuser:
+            if form.is_valid():
+                search_query = form.cleaned_data['search_query']
+                selected_date = form.cleaned_data['selected_date']
                 queryset = Booking.objects.filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
@@ -57,22 +56,15 @@ class BookingsListView(LoginRequiredMixin, ListView):
                     Q(service_name__service_name__icontains=search_query),
                     Q(date_of_booking=selected_date) if selected_date else Q()
                 ).order_by('date_of_booking', 'start_time')
+            # return queryset
         else:
-            # Shows Admin all future bookings
-            if self.request.user.is_superuser:
-                queryset = Booking.objects.filter(
+            # Show user their future bookings
+            queryset = Booking.objects.filter(
+                username=self.request.user).filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
-                      start_time__gte=current_time)
-                ).order_by('date_of_booking', 'start_time')
-            else:
-                # Shows user their future bookings
-                queryset = Booking.objects.filter(
-                    username=self.request.user).filter(
-                        Q(date_of_booking__gt=current_date) |
-                        Q(date_of_booking=current_date,
-                          start_time__gte=current_time)
-                ).order_by('date_of_booking', 'start_time')
+                        start_time__gte=current_time)
+            ).order_by('date_of_booking', 'start_time')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -185,7 +177,7 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = BookingForm
 
     def form_valid(self, form):
-         form.instance.calculateEndTime()
+        form.instance.calculateEndTime()
 
     def form_valid(self, form):
         form.instance.calculateEndTime()
