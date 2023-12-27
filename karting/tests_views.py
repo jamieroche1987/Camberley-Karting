@@ -129,18 +129,17 @@ class TestPastBookingsView(SetupTests):
         self.assertEqual(mail.outbox[0].subject, subject)
 
 
-
 class TestCreateBookingView(SetupTests):
-   
+
     def test_load_booking_form(self):
-            self.client.login(username='test_user1', password='getmein123')
-            response = self.client.get('/booking/create')
-            self.assertEqual(response.status_code, 200)
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get('/booking/create')
+        self.assertEqual(response.status_code, 200)
 
     def test_user_must_be_logged_in(self):
-            response = self.client.get('/booking/create')
-            self.assertRedirects(response,
-                                 '/accounts/login/?next=%2Fbooking%2Fcreate')
+        response = self.client.get('/booking/create')
+        self.assertRedirects(response,
+                             '/accounts/login/?next=%2Fbooking%2Fcreate')
 
 
 class TestUpdateBookingView(SetupTests):
@@ -173,3 +172,20 @@ class TestBookingDetailView(SetupTests):
     def test_user_must_be_logged_in(self):
         response = self.client.get(reverse('booking-detail', args=[1]))
         self.assertEqual(response.status_code, 302)
+
+
+class TestBookingDeleteView(SetupTests):
+    def test_user_cant_delete_another_users_booking(self):
+        self.client.login(username='test_user2', password='getmein123')
+        response = self.client.get(reverse('booking-delete', args=[1]))
+        self.assertEqual(response.status_code, 302)
+
+    def test_user_can_delete_their_own_booking(self):
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get(reverse('booking-delete', args=[1]))
+        self.assertEqual(response.status_code, 200)
+
+    def test_admin_can_delete_bookings(self):
+        self.client.login(username='admin', password='Superuser123')
+        response = self.client.get(reverse('booking-delete', args=[1]))
+        self.assertEqual(response.status_code, 200)
