@@ -56,7 +56,7 @@ class BookingsListView(LoginRequiredMixin, ListView):
                     Q(service_name__service_name__icontains=search_query),
                     Q(date_of_booking=selected_date) if selected_date else Q()
                 ).order_by('date_of_booking', 'start_time')
-           
+
         else:
             # Show user their future bookings
             queryset = Booking.objects.filter(

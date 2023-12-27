@@ -79,7 +79,7 @@ AUTHENTICATION_BACKENDS = [
 # Email Settings
 LOGIN_REDIRECT_URL = '/booking/'
 LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+# ACCOUNT_EMAIL_VERIFICATION = 'none' this is for testing, remove for production.
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -134,9 +134,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'camberleykarting.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+# SQLLite Database
 
 DATABASES = {
     'default': {
@@ -145,6 +146,7 @@ DATABASES = {
     }
 }
 
+# ElephantSQL Database
 # DATABASES = {
 #     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 # }
