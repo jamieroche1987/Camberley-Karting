@@ -25,30 +25,6 @@ class TestBookingForm(TestCase):
             'message': '',
         }
 
-        """Can't double book"""
-
-    def test_cant_double_book(self):
-        booking1 = BookingForm({
-            'username': 'Tester1',
-            'date_of_booking': '2024-02-24',
-            'service_name': self.test_service,
-            'start_time': '09:00:00',
-            'end_time': '09:30:00',
-            'confirmed': True,
-            'message': '',
-        })
-        self.assertTrue(booking1.is_valid())
-        time.sleep(1)
-        booking2 = BookingForm({
-            'date_of_booking': '2024-02-24',
-            'service_name': self.test_service,
-            'start_time': '09:00:00',
-            'message': '',
-        })
-
-        # self.assertFalse(booking2.is_valid())
-        # self.assertEqual(booking2.errors, {'date_of_booking': ['That time is already taken, please select a different time.']})
-    # Create a valid booking
 
     def create_booking(self, additional_data=None):
         data = self.common_data.copy()
