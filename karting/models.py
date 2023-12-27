@@ -43,8 +43,8 @@ class Booking(models.Model):
         - `date_of_booking` (DateField): Date of the reservation.
         - `service_name` (ForeignKey): Reference to the booked service.
         - `start_time` (TimeField): Start time of the reservation chosen from 
-           predefined choices.
-        - `end_time` (TimeField): End time of the reservation, calculated based 
+        predefined choices.
+        - `end_time` (TimeField): End time of the reservation, calculated based
            on the start time and service session length.
         - `confirmed` (BooleanField): Indicates whether the booking is 
            confirmed.
@@ -52,7 +52,7 @@ class Booking(models.Model):
         - `ordering`: Default ordering for queries based on date and start time.
     Methods:
         - `__str__`: Human-readable string representation of the booking.
-        - `calculateEndTime`: Calculates and sets the end time based on the 
+        - `calculateEndTime`: Calculates and sets the end time based on the
            start time and service session length.
     """
     username = models.ForeignKey(User, on_delete=models.CASCADE,
