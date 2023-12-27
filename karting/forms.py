@@ -59,5 +59,12 @@ class BookingForm(forms.ModelForm):
             raise ValidationError('That time is already taken, '
                                   'please select a different time.')
 
+
 class BookingSearchForm(forms.Form):
-    search_query = forms.CharField(required=False, label='Search Bookings')
+      search_query = forms.CharField(
+          required=False, label='Search Username/Service')
+    selected_date = forms.DateField(
+        required=False,
+        label='Select Date',
+        widget=forms.DateInput(attrs={'type': 'date'}),
+    )

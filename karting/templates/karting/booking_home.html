@@ -39,7 +39,7 @@
               href="{% url 'booking-detail' booking.id %}"
               class="link-underline link-underline-opacity-0"
             >
-              <div class="card shadow m-3 text-center custom-button-light-grey">
+              <div class="card grey-shadow m-3 text-center custom-button-light-grey">
                 <div class="card-header dark-background">
                   <p class="p-0 m-0 font-kalnia fs-4">
                     {{ booking.date_of_booking|date:"l j F Y" }}
@@ -120,11 +120,14 @@
         </div>
         
         {% if user.is_superuser %}
-        <div class="container mt-1 text-center font-kalnia card grey-shadow p-3">
+        <div class="container mt-1 text-center card grey-shadow p-3">
+            <h3 class="font-kalnia">Search Bookings</h3>
             <form method="get" action="{% url 'booking-home' %}">
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-primary mt-2">Search</button>
+                <button type="submit" class="btn btn-primary font-kalnia mt-2">Search</button>
+                <a href="{% url " booking-home" %}" class="btn btn-outline-secondary font-kalnia mt-2">Reset</a>
             </form>
+        
         </div>
         {% endif %}
       <div class="card grey-shadow p-3 mt-3">
