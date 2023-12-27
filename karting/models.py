@@ -1,9 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
-from django.urls import reverse
-
-
 import datetime
 
 BOOKING_TIME = ((datetime.time(9, 0, 0), '9:00am'),

@@ -152,8 +152,8 @@
                     </div>
 
                     <div class="modal-footer justify-content-center ">
-                        {% comment %} <button type="button" class="btn custom-button-light-grey font-sancreek me-3" data-bs-dismiss="modal">Close</button> {% endcomment %}
-                        <a href="{% url 'booking-create' %}" type="button" class="btn custom-button-dark-grey font-kalnia fs-4">Book a Race Day</a>
+                        {% comment %} <button type="button" class="btn custom-button-light-grey font-kalnia me-3" data-bs-dismiss="modal">Close</button> {% endcomment %}
+                        <a href="{% url 'booking-create' %}?next={{ request.get_full_path }}" type="button" class="btn custom-button-dark-grey font-kalnia fs-4">Book a Race Day</a>
                     </div>
 
                 </div>
