@@ -131,10 +131,6 @@ h5 {
     box-shadow: 0 0.2rem 1rem var(--clr-grey);
 }
 
-.red-test {
-    background-color: red;
-}
-
 /* Home Page */
 
 .hero-container {
@@ -175,4 +171,10 @@ h5 {
 .push-down {
     position: relative;
     top: 3rem;
+}
+
+/* Account Pages */
+
+.email-box {
+    max-width: 36em;
 }
