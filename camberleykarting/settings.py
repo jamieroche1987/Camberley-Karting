@@ -29,17 +29,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG = 'DEVELOPMENT' in os.environ
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-if DEBUG == 'False':
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-else:
-    BASE_DIR = Path(__file__).resolve().parent.parent
-
-os.environ["DEVELOPMENT"] = "True"
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-jamieroche1987-camberley-6w4y7u3lqh.us2.codeanyapp.com',
                  'camberleykarting.herokuapp.com', 'camberleykarting-609b5eae883e.herokuapp.com', '8000-jamieroche1987-camberley-tlty2fmj32.us2.codeanyapp.com', 'localhost',]
