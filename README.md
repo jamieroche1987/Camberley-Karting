@@ -355,11 +355,12 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 [Back to Top](#overview)
 
-### 5. Surface<hr>
+### 5. Surface
 
 #### Color Scheme and Fonts
 
 - The fonts used for this site were imported from [Google Fonts](https://fonts.google.com/):
+- 
   - Space Mono for the headings
   - Kalnia for the body
 
@@ -370,11 +371,8 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
    - --clr-light: #ffffff;
    - --clr-dark: #212529;
    - rgb (199, 225, 255)
-
-
-<img src="media/color-palette2.png" width="60%">
-
 [Back to Top](#overview)
+
 
 ## Existing Features
 
@@ -392,13 +390,18 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 #
 
-## Languages Used
+## Tools Used
 
-<
-
-## Frameworks, Libraries & Programs Used
 
 ## Testing and Code validation
+
+Tests were written using Django's test suite and can be found in the following locations:
+
+- booking_system > test_forms.py
+- booking_system > test_views.py
+- home > test_views.py
+
+As well as automated tests you can find details on user testing in [TESTING.md](TESTING.md).
 
 ## Deployment
 
