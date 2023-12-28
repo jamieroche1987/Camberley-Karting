@@ -37,13 +37,11 @@ class BookingsListView(LoginRequiredMixin, ListView):
     template_name = 'karting/booking_home.html'
     paginate_by = 25
     form_class = BookingSearchForm
-
     def get_queryset(self):
         current_date = date.today()
         current_time = time.strftime("%H:%M:%S", time.gmtime())
         form = BookingSearchForm(self.request.GET)
-
-       # Allow admin to search bookings
+        # Allow admin to search bookings
         if self.request.user.is_superuser:
             if form.is_valid():
                 search_query = form.cleaned_data['search_query']
@@ -56,7 +54,6 @@ class BookingsListView(LoginRequiredMixin, ListView):
                     Q(service_name__service_name__icontains=search_query),
                     Q(date_of_booking=selected_date) if selected_date else Q()
                 ).order_by('date_of_booking', 'start_time')
-
         else:
             # Show user their future bookings
             queryset = Booking.objects.filter(
@@ -66,18 +63,34 @@ class BookingsListView(LoginRequiredMixin, ListView):
                         start_time__gte=current_time)
             ).order_by('date_of_booking', 'start_time')
         return queryset
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = BookingSearchForm()
         return context
 
-
 class PastBookingsView(LoginRequiredMixin, ListView):
+    """
+    View for viewing past bookings
+    
+    Attributes:
+        - model: Booking from models.py
+        - template_name: The path to the template for rendering the view.
+        - paginate_by: The number of bookings to display per page.
+    Methods:
+        - get_queryset(): Retrieves the queryset of bookings to be displayed,
+        and filters out future bookings.
+        Superusers see all bookings, regular users only see their own bookings.
+    Usage:
+        - This view displays a paginated list of bookings.
+        - If the user is a superuser, the view shows all past bookings.
+        - Otherwise, it displays past bookings for the authenticated user.
+    Returns:
+        - QuerySet: A filtered and ordered QuerySet of bookings to be displayed
+        on the template.
+    """
     model = Booking
     template_name = 'karting/booking_past.html'
     paginate_by = 25
-
     def get_queryset(self):
         current_date = date.today()
         current_time = time.strftime("%H:%M:%S", time.gmtime())
@@ -92,11 +105,20 @@ class PastBookingsView(LoginRequiredMixin, ListView):
                     Q(date_of_booking__lt=current_date) |
                     Q(date_of_booking=current_date,
                       start_time__lte=current_time)
-            ).order_by('date_of_booking', 'start_time')
+                ).order_by('date_of_booking', 'start_time')
         return queryset
 
 
 def send_email_confirmation(user, subject, message):
+    """
+    Function to send users email.
+    
+    Takes
+    - Subject
+    - Message
+    - From email address
+    - To email address
+    """
     from_email = 'jamieroche1987@gmail.com'
     to_email = [user]
 
@@ -165,7 +187,7 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         - form_class: The form class to use for updating a booking.
     Methods:
         - form_valid(form): Overrides the form_valid method for customization.
-        Calculates the end time after a successful form submission and sends a
+        Calculates the end time after a successful form submission and sends a 
         confirmation email to the user.
         - test_func(): Checks if the current user is allowed to update the
         booking.
@@ -263,18 +285,28 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    View for an admin user to confirm an existing booking.
+    Attributes:
+        - model: Booking from models.py
+        - success_url: Redirect to booking-home after a successful
+        confirmation.
+    Methods:
+        - test_func(): Tests if the user is a superuser
+        - form_valid(): If the user has an email address attached to their
+        account they will be send a confirmation email.
+        The admin user will be shown a success message when the booking has
+        been successfully confirmed.
+    """
     model = Booking
     template_name = 'karting/booking_confirm.html'
     fields = ['confirmed']
     success_url = reverse_lazy('booking-home')
-
     def test_func(self):
         return self.request.user.is_superuser
-
     def form_valid(self, form):
         form.instance.confirmed = True
         form.save()
-
         if self.request.user.email:
             service = form.instance.service_name
             date = form.instance.date_of_booking
@@ -290,7 +322,6 @@ class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             send_email_confirmation(user_email,
                                     email_subject,
                                     email_message)
-
         messages.success(self.request,
                          "The booking has been confirmed!",
                          extra_tags="alert alert-success alert-dismissible",

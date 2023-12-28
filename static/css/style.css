@@ -108,12 +108,6 @@ h5 {
     transform: scale(1.15) rotateZ(-20deg);
 }
 
-/* #close-button {
-    position: relative;
-    left: 47%;
-    top: -55%
-} */
-
 .open-package-modal-btn {
     width: 80%;
     transition: 0.5s ease-in-out;
