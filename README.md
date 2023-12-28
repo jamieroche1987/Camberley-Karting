@@ -392,6 +392,54 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 ## Tools Used
 
+- [GitHub](https://github.com/) for hosting the source code of the program and version control
+- [Codeanywhere](https://codeanywhere.com/) for writing and testing the code
+- [Heroku](https://dashboard.heroku.com/) used for deploying the project
+- [ElephantSQL](https://www.elephantsql.com/) for the PostgreSQL database
+- [Balsamiq](https://balsamiq.com/wireframes/) for creating the wireframes
+- [LucidChart](https://www.lucidchart.com/) for creating the Flowchart and Database schema
+- [Font Awesome](https://fontawesome.com/) for the site's icons
+- [Bootstrap4](https://getbootstrap.com/) for the initial styling of of the site
+- [Google Fonts](https://fonts.google.com/) for the typography
+- [Code Institute Pylint](https://pep8ci.herokuapp.com/) for validating the python code
+- [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) for validating the HTML
+- [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) for validating the CSS
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) for debugging the project
+- [W.A.V.E.](https://wave.webaim.org/) for testing accessibility
+- [Cloudinary](https://cloudinary.com/) for storing static data
+- [Chrome LightHouse extension](https://developer.chrome.com/docs/lighthouse/overview/) for testing performance
+- [Favicon.io](https://favicon.io/) for converting the sites favicon
+
+[Back to Top](#overview)
+
+### Python packages
+
+- [Django](https://www.djangoproject.com/) was used as the framework for the site.
+- [Allauth](https://django-allauth.readthedocs.io/) for the login authentication.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/) for help styling the forms.
+- [Cloudinary](https://cloudinary.com/) for hosting the images.
+- [Gunicorn](https://gunicorn.org/) for handling the HTTP requests in production.
+- [Psycopg2](https://www.psycopg.org/) for aiding communication between Django and PostgresSQL
+- [Formtools](https://django-formtools.readthedocs.io/) for additional form utilities.
+- [Whitenoise](http://whitenoise.evans.io/en/stable/) for deploying the static files to Heroku.
+
+A full list of the requirements and the versions used can be found in the requirements.txt file.
+
+To create the requirements.txt file I ran the following command:<br>
+`pip3 freeze > requirements.txt`
+
+To create a superuser the following command should be run: <br>
+`python3 manage.py createsuperuser`
+
+To run the migrations to the database the following commands are used:<br>
+`python3 manage.py makemigrations` <br>
+`python3 manage.py migrate`
+
+To collect the static files for deployment run the following command: <br>
+`python3 manage.py collectstatic`
+
+[Back to Top](#overview)
+
 
 ## Testing and Code validation
 
