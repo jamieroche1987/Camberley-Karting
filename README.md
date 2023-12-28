@@ -84,12 +84,6 @@ To create a website with good UI and UX to promote Camberley Karting where poten
 
 ### 2. Scope
 
--
-
-## Functional Scope
-
-**Camberley Karting Flowchart**
-
 
 
 **Agile Methodology**
@@ -97,6 +91,26 @@ To create a website with good UI and UX to promote Camberley Karting where poten
 This project was developed using the Agile methodology.<br>
 All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Not Implemented** lists.
 The board can be viewed [here](https://github.com/users/jamieroche1987/projects/10)
+
+**Simple and Intuitive UX**
+<br>
+
+
+- Create a responsive navigation menu.
+- Create a footer with social links.
+- Include an arena location and opening times.
+- Ensure that the user is visually notified of all changed to their account, eg race day booking confirmations.
+- Ensure that the user keeps their orientation throughout their website experience.
+
+**Relevant Content**<br>
+
+- Make sure all the available Race Day services are listed on the site.
+- Display the address of the karting arena so users can find it.
+- Only allow users to book available time slots.
+
+**Responsiveness**<br>
+
+- Create a responsive website that works on every device and screen size.<br><br>
 
 ### 3. Structure
 
