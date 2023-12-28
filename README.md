@@ -110,7 +110,7 @@ The board can be viewed [here](https://github.com/users/jamieroche1987/projects/
 
 **Responsiveness**<br>
 
-- Create a responsive website that works on every device and screen size.<br><br>
+- Create a responsive website that works on every device and screen size.<br>
 
 ### 3. Structure
 
@@ -270,7 +270,7 @@ If the number of bookings exceeds 25 the page paginates.<br>
 The booking form has 4 inputs:
 
 - A date picker
-- A RKarting package dropdown list
+- A Karting package dropdown list
 - A time dropdown list
 - An optional message box
 
@@ -371,24 +371,128 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
    - --clr-light: #ffffff;
    - --clr-dark: #212529;
    - rgb (199, 225, 255)
+   - 
 [Back to Top](#overview)
 
 
 ## Existing Features
 
-### **Navbar**
+#### Karting Package Information Modal
 
-### **Custom 404 Page not found**
+On the homepage the Services section includes a list of services taken from the database of services offered. Each services is displayed as a button and when clicked a modal is displayed containing information about the service including:
 
-### **Custom 500 Internal server error**
+- Service name
+- Cost
+- A book karting package button
 
-### **Custom 403 Forbidden page**
+[Back to Top](#overview)
 
-#
+#### Book a Race Day
 
-## Future Features
+The booking form has 4 inputs:
 
-#
+- A date picker
+- A Karting package dropdown list
+- A time dropdown list
+- An optional message box
+
+The form has built in validation alerting the user when an error has been made or the booking cannot be made. Reasons for an error include:
+
+- Booking a date from the past
+- Booking a time in the past
+- Trying to book a race day package at a time that has already been booked.
+
+Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is confirmed.
+
+[Back to Top](#overview)
+
+##### Booking List
+
+Each booking is displayed on a card on the account home page and contains:
+
+- The date
+- The service
+- The time of the booking
+- If the user added a message, a message icon
+- The confirmation status of the booking
+
+[Back to Top](#overview)
+
+##### Booking Detail Page
+
+If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
+
+- Date
+- Username (if an admin user)
+- Package type
+- Start time
+- End time
+- Message (if the user added one)
+- The confirmation status
+- A confirm booking button (if the user is admin and the booking is not yet confirmed)
+- An edit race day button
+- A cancel race day button
+- A close button
+
+[Back to Top](#overview)
+
+##### Update Booking Page
+
+If the user clicks on the edit race day button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
+If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
+
+[Back to Top](#overview)
+
+##### Confirm Delete Booking Page
+
+If the user clicks on the 'Cancel race day' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
+
+[Back to Top](#overview)
+
+##### Admin Search Panel
+
+Admin users have a Search Bookings panel on the account home page giving the admin user the ability to search by:
+
+- Date of booking
+- Username
+
+[Back to Top](#overview)
+
+##### Update Email
+
+Users can update the email address attached to their account from the account panel in the account home page. They can:
+
+- Add an email address
+- Remove an email address
+- Make an email address primary
+
+[Back to Top](#overview)
+
+##### Change Password
+
+Users can change their password from the account panel in the account home page.
+
+[Back to Top](#overview)
+
+### Potential Future Features
+
+- Allow admin users to edit the services from the account home rather than from the django backend panel
+- Social media signup
+- Add profile section where users can add a profile picture and update their username
+- Add a description to the packages for the users to have more information about what the packages include.
+
+[Back to Top](#overview)
+
+## Responsive Layout and Design
+
+The bootstrap grid system and flexbox was used to create a fully responsive layout and testing on multiple screen sizes and devices was carried out to make sure it each page looks good in many settings.
+
+**Tested devices:**
+
+- iPhone 13
+- MacBook Pro
+- Samsung Galaxy Z flip 5
+
 
 ## Tools Used
 

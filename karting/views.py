@@ -119,7 +119,7 @@ def send_email_confirmation(user, subject, message):
     - From email address
     - To email address
     """
-    from_email = 'jamieroche1987@gmail.com'
+    from_email = 'CamberleyKarting@hotmail.co.uk'
     to_email = [user]
 
     send_mail(subject, message, from_email, to_email, fail_silently=False)
