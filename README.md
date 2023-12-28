@@ -90,15 +90,13 @@ To create a website with good UI and UX to promote Camberley Karting where poten
 
 **Camberley Karting Flowchart**
 
-<details>
-<summary>Flowchart</summary>
-<br>
 
-![MRI Flowchart]()
-
-</details>
 
 **Agile Methodology**
+
+This project was developed using the Agile methodology.<br>
+All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Not Implemented** lists.
+The board can be viewed [here](https://github.com/users/jamieroche1987/projects/10)
 
 ### 3. Structure
 
