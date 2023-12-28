@@ -6,7 +6,7 @@ body {
 }
 
 :root {
-    --clr-grey: blue;
+    --clr-grey: rgb(188, 188, 255);
     --clr-light: #ffffff;
     --clr-dark: #212529;
 }
@@ -19,14 +19,14 @@ h5 {
     font-family: "space-mono", sans-serif;
 }
 
+h2 {
+    text-decoration: underline;
+}
+
 /* Text */
 .white-text {
     transition: 0.5s ease-in-out;
     color: var(--clr-white);
-}
-
-.light-text {
-    color: var(--clr-light);
 }
 
 .dark-text {
@@ -145,7 +145,7 @@ h5 {
 .hero-image {
     height: 80vh;
     width: 100%;
-    background: url("https://res.cloudinary.com/digdpxm2u/image/upload/v1703508878/indoorkartingheroimage_iuwfhi.jpg") no-repeat center center / cover;
+    background: url("https://res.cloudinary.com/digdpxm2u/image/upload/v1703795673/pexels-eva-andria-7459725_1_iuzttq.jpg") no-repeat center center / cover;
 }
 
 .heading {
