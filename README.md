@@ -14,13 +14,73 @@
 
 ### User Stories
 
-1.
+
+## Overview
+
+The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a Go Karting race event.
+The user is notified of any change to their account or booking with an alert box and email notification where necessary.
+The user can see their past race day bookings and is notified when the booking has been confirmed by the karting company itself..
+The admin users have extra functionality, being able to search race bookings by date and username.
 
 #
 
 ### 1. Strategy
 
-- **Project Goal**
+<hr>
+
+To create a website with good UI and UX to promote Camberley Karting where potential customers can login, book and update a race day experience. 
+
+
+
+- Project Setup
+  - Create the initial Django application
+  - Set file structure in accordance with Django common practices
+  - Define and create the Database Models
+  - Link custom CSS & JavaScript as well as Bootstrap
+  - Create a base.html file for the other template to use
+  - Link Google Fonts for custom fonts
+- UX
+  - Include a Favicon logo
+  - Install Whitenoise to link up the custom styles
+  - View a list of services and cost
+  - Style the default allauth pages
+  - Create a Homepage
+  - Include a contact section
+  - Include 403, 500 & 404 pages
+  - Allow users and admins to view past race day bookings
+  - Display alerts and messages to the user
+- Navigation
+  - Have a Navbar that is the same across all the pages
+  - Have a Footer that is the same across all the pages
+- CRUD
+  - View upcoming race daybookings
+  - Book a race day event
+  - Delete a race day booking
+  - Enhanced Admin CRUD capabilities
+  - Update a race day booking
+- Authentication
+  - Add user emails
+  - Create User Account
+  - Setup allauth
+  - Allow users and admins to login
+  - Send the users email notification when their race day bookings are made, updated, deleted or confirmed
+- Validation
+  - Include validation in the booking form to make sure bookings are valid and the time is not already taken
+- Administration
+  - Allow admins to search for date of booking and user
+  - Allow users to update their account details including email and password
+  - Let admins confirm the race day bookings
+- Deployment
+  - Cloudinary
+  - ElephantSQL
+  - Heroku
+  - Set Debug to False
+- Testing
+  - Unit Tests
+  - Manual Testing
+- Documentation
+  - Readme
+
 
 ### 2. Scope
 
