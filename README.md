@@ -114,6 +114,224 @@ The board can be viewed [here](https://github.com/users/jamieroche1987/projects/
 
 ### 3. Structure
 
+<hr>
+The website is designed with the user in mind and once the user is logged in they have access to 7 different pages:
+- Landing page
+  - About
+  - Karting Packages
+  - Contact
+- Account Home
+- Past Bookings
+- Booking Form
+- Booking Details
+- Update Email Address
+- Change Password
+
+There are also 2 pages available to users who aren't singed in:
+
+- Create Account
+- Login
+
+[Back to Top](#overview)
+
+#### Navigation
+
+The navbar along the top of the page is always displayed, allowing the user to easily navigate around the site. The styling is consistent across the site but has different links on display for users that are signed in.
+All users will see:
+
+
+- About
+- Karting Packages
+- Contact
+- Book a Race Day
+
+A user who isn't signed in will see:
+
+- Register
+- Login
+
+<img src="" alt="Image of the navbar for a non-signed-in user"><br>
+
+A user who is signed in will see:
+
+- My Account
+- Logout
+
+<img src="" alt="Image of the navbar for a signed-in user"><br>
+
+On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.<br>
+<img src="" alt="Video of the hamburger navbar"><br>
+
+
+[Back to Top](#overview)
+
+#### Footer
+
+The footer is the same across all the pages and includes:
+
+- Social Media Icons (Facebook, Instagram, Github)
+- A copyright statement
+
+The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.<br>
+<img src="" alt= "Image of the footer" width="100%"><br>
+
+[Back to Top](#overview)
+
+#### Pages
+
+##### Landing Page
+
+The landing page is divided into 4 sections:
+
+- Hero Image
+- About section
+- Karting Packages section
+- Contact Section
+
+The main landing page has hero image to spark the users interest right away.<br><br>
+<img src="" alt="Image of hero image"><br>
+
+Below the hero image is an about section giving the user some information about Camberley karting.<br><br>
+<img src="" alt="Image of the about section"><br>
+
+Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with the cost of that service including a 'Book a Race Day' button.
+The information on the different services is taken from the database, so an admin user can update it from the django admin panel.<br><br>
+<img src="" alt="image of the services list"><br>
+
+At the bottom of the landing page is a contact section with address, opening times and a 'Book A Race Day' button.<br><br>
+<img src="" alt="Image of the contact section"><br>
+
+If the user is logged in, the 'Book A Race Day' button will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
+
+[Back to Top](#overview)
+
+##### Sign Up Page
+
+<img src="" alt="Image of the signup page" width="60%"><br>
+
+This page uses the allauth template as a base with custom design added.
+The username and password fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
+
+- Creating a booking
+- Updating a booking
+- Deleting a booking
+- An admin confirming a booking
+
+[Back to Top](#overview)
+
+##### Sign In Page
+
+<img src="" alt="Image of the login page" width="60%"><br>
+
+This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
+It also includes a remember me button to make using the site in future easier, and a reset password link that will send the user a password reset email if they included an email when signing up.
+
+[Back to Top](#overview)
+
+##### Account Home Page
+
+<img src="" alt="Image of the account home page"><br>
+
+This page is displayed when the user first logs in, unless they clicked a "Book A Race Day" button before logging in.
+On a large screen it is divided into 2 sections:
+
+- Upcoming Race Day bookings
+- Your Account
+
+On a mobile device the two sections are stacked with the upcoming bookings at the top of the page.
+
+Each booking is displayed on a card and contains:
+
+- The date
+- The service
+- The time of the booking
+- If the user added a message, a message icon
+- The confirmation status of the booking
+
+The card has a hover effect to indicate that it is a clickable link taking the user to the details of the booking.
+
+The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
+
+[Back to Top](#overview)
+
+##### Admin Account Home Page
+
+<img src="" alt="Image of the admin search panel" width="60%"><br>
+The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
+
+- Date of booking
+- Username
+
+If the number of bookings exceeds 25 the page paginates.<br>
+
+[Back to Top](#overview)
+
+##### Booking Form
+
+The booking form has 4 inputs:
+
+- A date picker
+- A Karting package dropdown list
+- A time dropdown list
+- An optional message box
+
+The form has built in validation alerting the user when an error has been made or the booking cannot be made. Reasons for an error include:
+
+- Booking a date in the past
+- Booking a time in the past
+- Trying to book a race day at a time that is already booked.
+
+Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
+
+[Back to Top](#overview)
+
+##### Booking Detail Page
+
+If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
+
+- Date
+- Username (if an admin user)
+- Karting package type
+- Start time
+- End time
+- Message (if the user added one)
+- The confirmation status
+- A confirm booking button (if the user is admin and the booking is not yet confirmed)
+- An edit Race Day button
+- A cancel Race Day button
+- A close button
+
+User's View<br>
+<img src="" alt="Image of the user booking detail page" width="70%"><br>
+Admin's View<br>
+<img src="" alt="Image of the admin booking detail page" width="70%"><br>
+
+[Back to Top](#overview)
+
+##### Update Booking Page
+
+If the user clicks on the edit Race Day button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
+If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
+
+[Back to Top](#overview)
+
+##### Confirm Delete Booking Page
+
+<img src="" alt="Image of the confirm delete page" width="60%"><br>
+If the user clicks on the 'Cancel Race Day' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
+
+[Back to Top](#overview)
+
+#### Sitemap
+
+The project flowcharts for the site structure was created using [LucidChart](https://www.lucidchart.com/).
+<details>
+<summary>Sitemap:</summary>
+<img src=""><br>
+</details>
+
+[Back to Top](#overview)
+
 ### 4. Skeleton
 
 - Wireframes created with Balsamiq. <br>
