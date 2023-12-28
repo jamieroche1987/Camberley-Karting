@@ -2,7 +2,7 @@
 
 body {
     font-family: "Kalnia", sans-serif;
-    background-color: var(--clr-light);
+    background-color: rgb(199, 225, 255);
 }
 
 :root {
@@ -12,7 +12,8 @@ body {
 }
 
 h1,
-h2 h3,
+h2,
+h3,
 h4,
 h5 {
     font-family: "space-mono", sans-serif;
@@ -126,7 +127,7 @@ h5 {
 }
 
 .custom-card-light-grey {
-    background-color: var(--clr-light);
+    background-color: grey;
     color: var(--clr-dark);
     box-shadow: 0 0.2rem 1rem var(--clr-grey);
 }

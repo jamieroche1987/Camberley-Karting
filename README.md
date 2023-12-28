@@ -139,7 +139,6 @@ There are also 2 pages available to users who aren't singed in:
 The navbar along the top of the page is always displayed, allowing the user to easily navigate around the site. The styling is consistent across the site but has different links on display for users that are signed in.
 All users will see:
 
-
 - About
 - Karting Packages
 - Contact
@@ -160,7 +159,7 @@ A user who is signed in will see:
 <img src="" alt="Image of the navbar for a signed-in user"><br>
 
 On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.<br>
-<img src="" alt="Video of the hamburger navbar"><br>
+<img src="" alt="Image of the hamburger navbar"><br>
 
 
 [Back to Top](#overview)
@@ -224,7 +223,7 @@ The username and password fields are mandatory but the email is optional. If the
 <img src="" alt="Image of the login page" width="60%"><br>
 
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
-It also includes a remember me button to make using the site in future easier, and a reset password link that will send the user a password reset email if they included an email when signing up.
+It also includes aremember me button to make using the site in future easier, and a reset password link that will send the user a password reset email if they included an email when signing up.
 
 [Back to Top](#overview)
 
@@ -271,7 +270,7 @@ If the number of bookings exceeds 25 the page paginates.<br>
 The booking form has 4 inputs:
 
 - A date picker
-- A Karting package dropdown list
+- A RKarting package dropdown list
 - A time dropdown list
 - An optional message box
 
@@ -334,11 +333,48 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 
 ### 4. Skeleton
 
-- Wireframes created with Balsamiq. <br>
+<hr>
+**Wireframes**
 
-* Colours
+The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
+<summary>Here:</summary>
+Homepage<br>
+<img src=""><br>
+Login/Logout pages<br>
+<img src=""><br>
+Book a Race Day<br>
+<img src=""><br>
+</details><br>
 
-**Font Selection**
+**Database**
+The project uses ElephantSQL as PostgreSQL relational database for storing the data.
+<details>
+  <summary>Model</summary>
+  <img src=""><br>
+</details><br>
+
+[Back to Top](#overview)
+
+### 5. Surface<hr>
+
+#### Color Scheme and Fonts
+
+- The fonts used for this site were imported from [Google Fonts](https://fonts.google.com/):
+  - Space Mono for the headings
+  - Kalnia for the body
+
+<img src="" width="60%">
+
+- The colors used were 
+   - --clr-grey: grey;
+   - --clr-light: #ffffff;
+   - --clr-dark: #212529;
+   - rgb (199, 225, 255)
+
+
+<img src="media/color-palette2.png" width="60%">
+
+[Back to Top](#overview)
 
 ## Existing Features
 
