@@ -17,10 +17,10 @@
 
 ## Overview
 
-The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a Go Karting race event.
-The user is notified of any change to their account or booking with an alert box and email notification where necessary.
-The user can see their past race day bookings and is notified when the booking has been confirmed by the karting company itself..
-The admin users have extra functionality, being able to search race bookings by date and username.
+- The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a Go Karting race event.
+- The user is notified of any change to their account or booking with an alert box and email notification where necessary.
+- The user can see their past race day bookings and is notified when the booking has been confirmed by the karting company itself..
+- The admin users have extra functionality, being able to search race bookings by date and username.
 
 #
 
@@ -116,13 +116,13 @@ The board can be viewed [here](https://github.com/users/jamieroche1987/projects/
 
 <hr>
 The website is designed with the user in mind and once the user is logged in they have access to 7 different pages:
+  
 - Landing page
   - About
   - Karting Packages
   - Contact
 - Account Home
-- Past Bookings
-- Booking Form
+- Past Bookings- Booking Form
 - Booking Details
 - Update Email Address
 - Change Password
