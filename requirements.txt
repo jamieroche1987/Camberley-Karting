@@ -9,7 +9,9 @@ django-crispy-forms==2.1
 django-formtools==2.5.1
 gunicorn==21.2.0
 oauthlib==3.2.2
+ply==3.11
 psycopg2==2.9.9
+pycparser==2.3
 PyJWT==2.8.0
 python3-openid==3.2.0
 pytz==2023.3.post1
