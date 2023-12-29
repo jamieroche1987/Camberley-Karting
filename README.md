@@ -4,7 +4,7 @@
 
 ## FINAL DESIGN
 
-#
+#![Final project image home page](media/amiresponsive.png) Am  i Responsive(https://amiresponsive.co.uk/)
 
 [Here is a link to the final project](https://camberleykarting-609b5eae883e.herokuapp.com/)
 
