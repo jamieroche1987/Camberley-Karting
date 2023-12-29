@@ -4,7 +4,7 @@
 
 ## FINAL DESIGN
 
-#![Final project image home page](media/amiresponsive.png) Am  i Responsive(https://amiresponsive.co.uk/)
+![Final project image home page](media/amiresponsive.png) Am  i Responsive(https://amiresponsive.co.uk/)
 
 [Here is a link to the final project](https://camberleykarting-609b5eae883e.herokuapp.com/)
 
@@ -315,6 +315,7 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
 <summary>Here:</summary>
+
 Homepage<br>
 <img src="media/wireframeshomedesktop.png"><br>
 <img src="media/wireframeshomemobile.png"><br>
@@ -325,9 +326,12 @@ Book a Race Day<br>
 <img src="media/wireframebookaracedaydesktop.png"><br>
 <img src="media/wireframebookaracedaymobile.png"><br>
 </details><br>
-
 **Database**
 The project uses ElephantSQL as PostgreSQL relational database for storing the data.
+<details>
+  <summary>Model</summary>
+  <img src="media/databaseschema.png"><br>
+</details><br>
 
 ### 5. Surface
 
@@ -338,13 +342,12 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
   - Space Mono for the headings
   - Kalnia for the body
 
-<img src="" width="60%">
-
 - The colors used were 
  
+<img src="media/backgroundcolor.png"> rgb(199, 225, 255)
+<img src="media/buttoncolor"> rgb(188, 188, 255)
+<img src="media/buttoncolor2"> #212529
 
-
-## Existing Features
 
 #### Karting Package Information Modal
 
