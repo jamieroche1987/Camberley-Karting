@@ -26,8 +26,6 @@
 
 ### 1. Strategy
 
-<hr>
-
 To create a website with good UI and UX to promote Camberley Karting where potential customers can login, book and update a race day experience. 
 
 
@@ -93,13 +91,11 @@ All epics and user stories implementation progress was registered using [GitHub]
 The board can be viewed [here](https://github.com/users/jamieroche1987/projects/10)
 
 **Simple and Intuitive UX**
-<br>
-
 
 - Create a responsive navigation menu.
 - Create a footer with social links.
 - Include an arena location and opening times.
-- Ensure that the user is visually notified of all changed to their account, eg race day booking confirmations.
+- Ensure that the user is visually notified of all changed to their account for race day booking confirmations.
 - Ensure that the user keeps their orientation throughout their website experience.
 
 **Relevant Content**<br>
@@ -149,17 +145,15 @@ A user who isn't signed in will see:
 - Register
 - Login
 
-<img src="" alt="Image of the navbar for a non-signed-in user"><br>
-
 A user who is signed in will see:
 
 - My Account
 - Logout
 
-<img src="" alt="Image of the navbar for a signed-in user"><br>
+<img src="media/navbar.png" alt="Image of the navbar for a signed-in user"><br>
 
 On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.<br>
-<img src="" alt="Image of the hamburger navbar"><br>
+<img src="media/hamburgernavbar.png" alt="Image of the hamburger navbar"><br>
 
 
 
@@ -172,7 +166,7 @@ The footer is the same across all the pages and includes:
 - A copyright statement
 
 The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.<br>
-<img src="" alt= "Image of the footer" width="100%"><br>
+<img src="media/footer1.png" alt= "Image of the footer" width="100%"><br>
 
 
 #### Pages
@@ -187,24 +181,21 @@ The landing page is divided into 4 sections:
 - Contact Section
 
 The main landing page has hero image to spark the users interest right away.<br><br>
-<img src="" alt="Image of hero image"><br>
+<img src="media/heroimage.png" alt="Image of hero image"><br>
 
 Below the hero image is an about section giving the user some information about Camberley karting.<br><br>
-<img src="" alt="Image of the about section"><br>
+<img src="media/about.png alt="Image of the about section"><br>
 
-Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with the cost of that service including a 'Book a Race Day' button.
-The information on the different services is taken from the database, so an admin user can update it from the django admin panel.<br><br>
-<img src="" alt="image of the services list"><br>
+Below the about section is some information on the different karting packages available. Each one can be clicked on and a modal appears with the cost of that package including a 'Book a Race Day' button.
+<img src="media/kartingpackages.png" alt="image of the karting packages list"><br>
 
 At the bottom of the landing page is a contact section with address, opening times and a 'Book A Race Day' button.<br><br>
-<img src="" alt="Image of the contact section"><br>
+<img src="media/contact.png" alt="Image of the contact section"><br>
 
 If the user is logged in, the 'Book A Race Day' button will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
 
 
 ##### Sign Up Page
-
-<img src="" alt="Image of the signup page" width="60%"><br>
 
 This page uses the allauth template as a base with custom design added.
 The username and password fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
@@ -217,7 +208,7 @@ The username and password fields are mandatory but the email is optional. If the
 
 ##### Sign In Page
 
-<img src="" alt="Image of the login page" width="60%"><br>
+<img src="media/signin.png" alt="Image of the login page" width="60%"><br>
 
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
 It also includes aremember me button to make using the site in future easier, and a reset password link that will send the user a password reset email if they included an email when signing up.
@@ -226,7 +217,7 @@ It also includes aremember me button to make using the site in future easier, an
 
 ##### Account Home Page
 
-<img src="" alt="Image of the account home page"><br>
+<img src="media/myaccount.png" alt="Image of the account home page"><br>
 
 This page is displayed when the user first logs in, unless they clicked a "Book A Race Day" button before logging in.
 On a large screen it is divided into 2 sections:
@@ -239,7 +230,7 @@ On a mobile device the two sections are stacked with the upcoming bookings at th
 Each booking is displayed on a card and contains:
 
 - The date
-- The service
+- The karting package
 - The time of the booking
 - If the user added a message, a message icon
 - The confirmation status of the booking
@@ -252,7 +243,7 @@ The bookings are displayed in order starting from the one closest to the current
 
 ##### Admin Account Home Page
 
-<img src="" alt="Image of the admin search panel" width="60%"><br>
+<img src="media/adminaccount.png" alt="Image of the admin search panel" width="60%"><br>
 The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
 
 - Date of booking
@@ -295,11 +286,6 @@ If a user clicks on a booking from the account home page they are taken to the a
 - A cancel Race Day button
 - A close button
 
-User's View<br>
-<img src="" alt="Image of the user booking detail page" width="70%"><br>
-Admin's View<br>
-<img src="" alt="Image of the admin booking detail page" width="70%"><br>
-
 
 ##### Update Booking Page
 
@@ -309,7 +295,6 @@ If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' an
 
 ##### Confirm Delete Booking Page
 
-<img src="" alt="Image of the confirm delete page" width="60%"><br>
 If the user clicks on the 'Cancel Race Day' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
 
@@ -319,10 +304,9 @@ If the user clicks on the 'Cancel Race Day' button on the booking detail page th
 The project flowcharts for the site structure was created using [LucidChart](https://www.lucidchart.com/).
 <details>
 <summary>Sitemap:</summary>
-<img src=""><br>
+<img src="media/flowchart.png"><br>
 </details>
 
-[Back to Top](#overview)
 
 ### 4. Skeleton
 
@@ -332,21 +316,18 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
 <summary>Here:</summary>
 Homepage<br>
-<img src=""><br>
-Login/Logout pages<br>
-<img src=""><br>
+<img src="media/wireframeshomedesktop.png"><br>
+<img src="media/wireframeshomemobile.png"><br>
+Login/Create account pages<br>
+<img src="media/wireframecreateaccountdesktop.png"><br>
+<img src="media/wireframecreateaccountmobile.png"><br>
 Book a Race Day<br>
-<img src=""><br>
+<img src="media/wireframebookaracedaydesktop.png"><br>
+<img src="media/wireframebookaracedaymobile.png"><br>
 </details><br>
 
 **Database**
 The project uses ElephantSQL as PostgreSQL relational database for storing the data.
-<details>
-  <summary>Model</summary>
-  <img src=""><br>
-</details><br>
-
-[Back to Top](#overview)
 
 ### 5. Surface
 
@@ -360,12 +341,7 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 <img src="" width="60%">
 
 - The colors used were 
-   - --clr-grey: grey;
-   - --clr-light: #ffffff;
-   - --clr-dark: #212529;
-   - rgb (199, 225, 255)
-   - 
-[Back to Top](#overview)
+ 
 
 
 ## Existing Features
@@ -378,7 +354,7 @@ On the homepage the Services section includes a list of services taken from the 
 - Cost
 - A book karting package button
 
-[Back to Top](#overview)
+
 
 #### Book a Race Day
 
@@ -397,7 +373,6 @@ The form has built in validation alerting the user when an error has been made o
 
 Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is confirmed.
 
-[Back to Top](#overview)
 
 ##### Booking List
 
@@ -409,7 +384,6 @@ Each booking is displayed on a card on the account home page and contains:
 - If the user added a message, a message icon
 - The confirmation status of the booking
 
-[Back to Top](#overview)
 
 ##### Booking Detail Page
 
@@ -427,20 +401,17 @@ If a user clicks on a booking from the account home page they are taken to the a
 - A cancel race day button
 - A close button
 
-[Back to Top](#overview)
 
 ##### Update Booking Page
 
 If the user clicks on the edit race day button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
-[Back to Top](#overview)
 
 ##### Confirm Delete Booking Page
 
 If the user clicks on the 'Cancel race day' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
-[Back to Top](#overview)
 
 ##### Admin Search Panel
 
@@ -449,7 +420,6 @@ Admin users have a Search Bookings panel on the account home page giving the adm
 - Date of booking
 - Username
 
-[Back to Top](#overview)
 
 ##### Update Email
 
@@ -459,22 +429,19 @@ Users can update the email address attached to their account from the account pa
 - Remove an email address
 - Make an email address primary
 
-[Back to Top](#overview)
 
 ##### Change Password
 
 Users can change their password from the account panel in the account home page.
 
-[Back to Top](#overview)
 
 ### Potential Future Features
 
-- Allow admin users to edit the services from the account home rather than from the django backend panel
+- Allow admin users to edit the karting packages from the account home rather than from the django backend panel
 - Social media signup
 - Add profile section where users can add a profile picture and update their username
 - Add a description to the packages for the users to have more information about what the packages include.
 
-[Back to Top](#overview)
 
 ## Responsive Layout and Design
 
@@ -482,10 +449,20 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 
 **Tested devices:**
 
-- iPhone 13
-- MacBook Pro
-- Samsung Galaxy Z flip 5
+- I have tested responsiveness and functionality on the following devices and browsers:
+  
+  - Android:
 
+  - Samsung Galaxy Tab A
+
+  - Apple:
+
+    - Ipad mini
+    - Iphone 14 pro max
+  
+  - Desktops/laptops:
+
+  - HP Pavillion Laptop
 
 ## Tools Used
 
@@ -494,7 +471,7 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 - [Heroku](https://dashboard.heroku.com/) used for deploying the project
 - [ElephantSQL](https://www.elephantsql.com/) for the PostgreSQL database
 - [Balsamiq](https://balsamiq.com/wireframes/) for creating the wireframes
-- [LucidChart](https://www.lucidchart.com/) for creating the Flowchart and Database schema
+- [LucidChart](https://www.lucidchart.com/) for creating the Flowchart
 - [Font Awesome](https://fontawesome.com/) for the site's icons
 - [Bootstrap4](https://getbootstrap.com/) for the initial styling of of the site
 - [Google Fonts](https://fonts.google.com/) for the typography
@@ -507,7 +484,6 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 - [Chrome LightHouse extension](https://developer.chrome.com/docs/lighthouse/overview/) for testing performance
 - [Favicon.io](https://favicon.io/) for converting the sites favicon
 
-[Back to Top](#overview)
 
 ### Python packages
 
@@ -535,7 +511,7 @@ To run the migrations to the database the following commands are used:<br>
 To collect the static files for deployment run the following command: <br>
 `python3 manage.py collectstatic`
 
-[Back to Top](#overview)
+
 
 
 ## Testing and Code validation
@@ -557,7 +533,7 @@ Camberley Karting is deployed using Heroku
 
  1. Ensure all dependencies are listed within the requirements.txt file
 
- Within the terminal in Gitpod type `pip3 --local freeze > requirements.txt`, and a list with all requirements will be created to be read by Heroku.
+ Within the terminal in codeanywhere type `pip3 --local freeze > requirements.txt`, and a list with all requirements will be created to be read by Heroku.
 
  2. Setting up Heroku
 
