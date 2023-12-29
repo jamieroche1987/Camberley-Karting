@@ -524,6 +524,18 @@ Tests were written using Django's test suite and can be found in the following l
 
 As well as automated tests you can find details on user testing in [TESTING.md](TESTING.md).
 
+## Bugs
+
+- Static files were not being issued on Heroku, I needed to install and setup whitenoise.
+- On deployment, the email confirmations were causing an internal server error the user. I needed to give Heroku assess to the email password.
+- Adding whitenoise to MIDDLEWARE caused the project to break. It needed to be installed.
+- The nested if statements in the account home page was causing the searchbox to be hidden. The statements needed rearranging.
+- The custom 400, 403 and 500 pages were not showing up on deployment. Once I removed the {% trans %} block inside the html template they worked.
+- The DeleteBookingView was not sending a confirmation email to the user. I needed to put the code in the delete method not the form_valid method.
+- Adding the searchbox to the admin panel was causing a user to not be able to view the account home page. I all code related to the search panel inside an if statement to fix the error.
+- - When a booking was updated a new one was created and the old one was still in the database. The url needed to be removed from the form button so the form can complete it's function rather than creating a new booking.
+
+
 ## Deployment
 
 Camberley Karting is deployed using Heroku
