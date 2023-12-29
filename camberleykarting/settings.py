@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-jamieroche1987-camberley-6w4y7u3lqh.us2.codeanyapp.com',
                  'camberleykarting.herokuapp.com', 'camberleykarting-609b5eae883e.herokuapp.com', '8000-jamieroche1987-camberley-tlty2fmj32.us2.codeanyapp.com', 'localhost',]
