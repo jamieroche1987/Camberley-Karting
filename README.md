@@ -6,7 +6,7 @@
 
 #
 
-[Here is a link to the final project]()
+[Here is a link to the final project](https://camberleykarting-609b5eae883e.herokuapp.com/)
 
 #
 
@@ -132,7 +132,7 @@ There are also 2 pages available to users who aren't singed in:
 - Create Account
 - Login
 
-[Back to Top](#overview)
+
 
 #### Navigation
 
@@ -162,7 +162,7 @@ On smaller screen sizes a hamburger menu is displayed with a smooth dropdown eff
 <img src="" alt="Image of the hamburger navbar"><br>
 
 
-[Back to Top](#overview)
+
 
 #### Footer
 
@@ -174,7 +174,6 @@ The footer is the same across all the pages and includes:
 The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.<br>
 <img src="" alt= "Image of the footer" width="100%"><br>
 
-[Back to Top](#overview)
 
 #### Pages
 
@@ -202,7 +201,6 @@ At the bottom of the landing page is a contact section with address, opening tim
 
 If the user is logged in, the 'Book A Race Day' button will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
 
-[Back to Top](#overview)
 
 ##### Sign Up Page
 
@@ -216,7 +214,6 @@ The username and password fields are mandatory but the email is optional. If the
 - Deleting a booking
 - An admin confirming a booking
 
-[Back to Top](#overview)
 
 ##### Sign In Page
 
@@ -225,7 +222,7 @@ The username and password fields are mandatory but the email is optional. If the
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
 It also includes aremember me button to make using the site in future easier, and a reset password link that will send the user a password reset email if they included an email when signing up.
 
-[Back to Top](#overview)
+
 
 ##### Account Home Page
 
@@ -251,7 +248,7 @@ The card has a hover effect to indicate that it is a clickable link taking the u
 
 The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
 
-[Back to Top](#overview)
+
 
 ##### Admin Account Home Page
 
@@ -263,7 +260,6 @@ The account home page for an Admin user has the addition of a Search Bookings pa
 
 If the number of bookings exceeds 25 the page paginates.<br>
 
-[Back to Top](#overview)
 
 ##### Booking Form
 
@@ -282,7 +278,6 @@ The form has built in validation alerting the user when an error has been made o
 
 Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
 
-[Back to Top](#overview)
 
 ##### Booking Detail Page
 
@@ -305,21 +300,19 @@ User's View<br>
 Admin's View<br>
 <img src="" alt="Image of the admin booking detail page" width="70%"><br>
 
-[Back to Top](#overview)
 
 ##### Update Booking Page
 
 If the user clicks on the edit Race Day button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
-[Back to Top](#overview)
 
 ##### Confirm Delete Booking Page
 
 <img src="" alt="Image of the confirm delete page" width="60%"><br>
 If the user clicks on the 'Cancel Race Day' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
-[Back to Top](#overview)
+
 
 #### Sitemap
 
