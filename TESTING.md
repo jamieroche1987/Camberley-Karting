@@ -337,7 +337,7 @@ Actual:
 
 [Wave Accessibility](https://wave.webaim.org/) tool was used throughout development and for final testing of the deployed website to check for any aid accessibility testing.
 
-![Wave Testing]()
+![Wave Testing](media/wavereport.png)
 
 Testing was focused to ensure the following criteria were met:
 
@@ -349,7 +349,6 @@ Testing was focused to ensure the following criteria were met:
 - Aria properties have been implemented correctly
 - WCAG 2.1 Coding best practices being followed
 
-[Back to Top](#testing)
 
 ## Validator Testing
 
@@ -357,15 +356,15 @@ All pages were run through the [w3 HTML Validator](https://validator.w3.org/).
 
 The Django templating language would not allow the files to be pasted into the validator and as some of the pages were restricted due to login or admin access I used the Chrome DevTools to copy the HTML content and paste that into the validator.
 
-![HTML Validator]()
+![HTML Validator](media/htmlvalidation.png)
 
 All pages were run through the [Code Institute Pylint](https://pep8ci.herokuapp.com/) validator to ensure all code was pep8 compliant.
 
-![PEP8]()
+![PEP8](media/pythonvalidation.png)
 
 JavaScript code was run through [JSHINT](https://jshint.com) javascript validator.
 
-![JS validator]()
+![JS validator](media/jsvalidation.png)
 
 
 ## Lighthouse Reports

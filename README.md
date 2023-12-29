@@ -561,8 +561,8 @@ Camberley Karting is deployed using Heroku
   - So instead, In order to connect gitpod to heroku type:
     - `$ heroku login -i`
     - Then enter your heroku credentials,
-    - Now you are logged into heroku in Gitpod
-    - Once all code is commited and pushed to Github, simply push code from Gitpod to heroku using the command:
+    - Now you are logged into heroku in Codeanywhere
+    - Once all code is commited and pushed to Github, simply push code from Codeanywhere to heroku using the command:
     - Heroku will start the build process, this can be viewed under the `Activity` tab
     - Once the build process has completed, navigate to `Open App`
     - The app should now be ready to view
