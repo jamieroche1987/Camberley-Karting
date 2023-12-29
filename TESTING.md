@@ -371,25 +371,22 @@ JavaScript code was run through [JSHINT](https://jshint.com) javascript validato
 All lighthouse reports for all pages came back with a score of at least , you can see the full reports below.
 
 Landing Page<br>
-![Lighthouse Landing Page]()
+![Lighthouse Landing Page](media/lighthousehomepage.png)
 
 Account Home<br>
-![Lighthouse Account Home]()
-
-Booking Detail<br>
-![Lighthouse Booking Detail]()
+![Lighthouse Account Home](media/lighthouseaccountpage.png)
 
 Booking Form<br>
-![Lighthouse Booking Form]()
+![Lighthouse Booking Form](media/lighthousebookingform.png)
 
 Logout<br>
-![Lighthouse Logout]()
+![Lighthouse Logout](media/lighthousesignout.png)
 
 Sign Up<br>
-![Lighthouse Sign Up]()
+![Lighthouse Sign Up](media/lighthousesignup.png)
 
 Log In<br>
-![Lighthouse Log In]()
+![Lighthouse Log In](media/lighthouselogin.png)
 
 
 ## Responsiveness
