@@ -609,11 +609,33 @@ Press Enter. Your local clone will be created
 
 </details>
 
+## Images
+
+- I sourced the hero image for the home page from <https://www.pexels.com/>
 
 ## Credits and references
 
-### Images
 
--
+### Code
+
+  - W3schools
+  - Stack overflow
+  - The Code Institute CodeStar walkthrough project was a great help in getting used to Django. The JS was from the walkthrough project.
+    - - Django's docs have been invaluable:
+  - [Date](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date)
+  - [Time](https://docs.python.org/3/library/time.html)
+  - [Email](https://docs.djangoproject.com/en/3.2/topics/email/#email-backends)
+  - - Help with Bootstrap from their [documentation](https://getbootstrap.com)
+ 
+
+
 
 ## Acknowledgements
+
+- My partner Runa Brandes-Roche who has taken the time to look and advice me on the areas that need improving or amending. Also putting up with my stress levels when things have got tough when doing this project. Thank you Runa for your continued support.
+
+- John for his guidance and help whenever i required it. Helping me with coding errors all over the project. His time and patiences has been something i truly appreciate. Thnak you again John for all your help during this project.
+
+- All the Tutors at tutor support that have guided me when ive got stuck and helped me solve the issues i was having.
+
+- The Code Institute Slack community who have been there to help and give suggestions and feedback.
