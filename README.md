@@ -4,7 +4,7 @@
 
 ## FINAL DESIGN
 
-![Final project image home page](media/amiresponsive.png) Am  i Responsive(https://amiresponsive.co.uk/)
+![Final project image home page](media/amiresponsive.png) AmiResponsive(https://amiresponsive.co.uk/)
 
 [Here is a link to the final project](https://camberleykarting-609b5eae883e.herokuapp.com/)
 
@@ -537,7 +537,7 @@ As well as automated tests you can find details on user testing in [TESTING.md](
 - The custom 400, 403 and 500 pages were not showing up on deployment. Once I removed the {% trans %} block inside the html template they worked.
 - The DeleteBookingView was not sending a confirmation email to the user. I needed to put the code in the delete method not the form_valid method.
 - Adding the searchbox to the admin panel was causing a user to not be able to view the account home page. I all code related to the search panel inside an if statement to fix the error.
-- - When a booking was updated a new one was created and the old one was still in the database. The url needed to be removed from the form button so the form can complete it's function rather than creating a new booking.
+- When a booking was updated a new one was created and the old one was still in the database. The url needed to be removed from the form button so the form can complete it's function rather than creating a new booking.
 
 
 ## Deployment
@@ -629,7 +629,7 @@ Press Enter. Your local clone will be created
   - [Date](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date)
   - [Time](https://docs.python.org/3/library/time.html)
   - [Email](https://docs.djangoproject.com/en/3.2/topics/email/#email-backends)
-  - - Help with Bootstrap from their [documentation](https://getbootstrap.com)
+  - Help with Bootstrap from their [documentation](https://getbootstrap.com)
  
 
 

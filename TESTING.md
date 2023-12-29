@@ -310,7 +310,6 @@ Expected:
 Actual:
 - As expected
 
-[Back to Top](#testing)
 
 
 ### User Story: Confirm bookings
@@ -330,8 +329,6 @@ Expected:
 
 Actual:
 - As expected
-
-[Back to Top](#testing)
 
 ## Accessibility
 
