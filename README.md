@@ -51,7 +51,7 @@ To create a website with good UI and UX to promote Camberley Karting where poten
   - Have a Navbar that is the same across all the pages
   - Have a Footer that is the same across all the pages
 - CRUD
-  - View upcoming race daybookings
+  - View upcoming race day bookings
   - Book a race day event
   - Delete a race day booking
   - Enhanced Admin CRUD capabilities
@@ -118,7 +118,8 @@ The website is designed with the user in mind and once the user is logged in the
   - Karting Packages
   - Contact
 - Account Home
-- Past Bookings- Booking Form
+- Past Bookings
+- Booking Form
 - Booking Details
 - Update Email Address
 - Change Password
@@ -150,7 +151,7 @@ A user who is signed in will see:
 - My Account
 - Logout
 
-<img src="media/navbar.png" alt="Image of the navbar for a signed-in user"><br>
+<img src="media/navbar1.png" alt="Image of the navbar for a signed-in user"><br>
 
 On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.<br>
 <img src="media/hamburgernavbar.png" alt="Image of the hamburger navbar"><br>
@@ -180,11 +181,11 @@ The landing page is divided into 4 sections:
 - Karting Packages section
 - Contact Section
 
-The main landing page has hero image to spark the users interest right away.<br><br>
+The main landing page has hero image to spark the users interest right away.<br>
 <img src="media/heroimage.png" alt="Image of hero image"><br>
 
-Below the hero image is an about section giving the user some information about Camberley karting.<br><br>
-<img src="media/about.png alt="Image of the about section"><br>
+Below the hero image is an about section giving the user some information about Camberley karting.<br>
+<img src="media/about.png" alt="Image of the about section"><br>
 
 Below the about section is some information on the different karting packages available. Each one can be clicked on and a modal appears with the cost of that package including a 'Book a Race Day' button.
 <img src="media/kartingpackages.png" alt="image of the karting packages list"><br>
@@ -345,8 +346,8 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 - The colors used were 
  
 <img src="media/backgroundcolor.png"> rgb(199, 225, 255)
-<img src="media/buttoncolor"> rgb(188, 188, 255)
-<img src="media/buttoncolor2"> #212529
+<img src="media/buttoncolor.png"> rgb(188, 188, 255)
+<img src="media/buttoncolor2.png"> #212529
 
 
 #### Karting Package Information Modal
@@ -624,7 +625,7 @@ Press Enter. Your local clone will be created
   - W3schools
   - Stack overflow
   - The Code Institute CodeStar walkthrough project was a great help in getting used to Django. The JS was from the walkthrough project.
-    - - Django's docs have been invaluable:
+  - Django's docs have been a great help during this project:
   - [Date](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date)
   - [Time](https://docs.python.org/3/library/time.html)
   - [Email](https://docs.djangoproject.com/en/3.2/topics/email/#email-backends)
